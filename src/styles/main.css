@@ -1,0 +1,59 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #7a1f8a;
+  --color-secondary: #e65a12;
+  --color-accent: #6a9f32;
+  --color-dark: #2b0f33;
+  --color-cream: #fff8f2;
+  --color-soft-purple: #f5e9f8;
+  --color-soft-orange: #fff0e8;
+  --color-soft-green: #eef7e8;
+
+  --font-family-sans: "Inter", "Segoe UI", sans-serif;
+  --font-family-display: "Playfair Display", Georgia, serif;
+
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.25rem;
+  --text-2xl: 1.5rem;
+  --text-3xl: 1.875rem;
+  --text-4xl: 2.25rem;
+  --text-5xl: 3rem;
+  --text-6xl: 3.75rem;
+
+  --leading-tight: 1.15;
+  --leading-snug: 1.35;
+  --leading-normal: 1.6;
+  --leading-relaxed: 1.8;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-family-sans);
+  background: var(--color-cream);
+  color: var(--color-dark);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #fff0e8;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(#e65a12, #7a1f8a);
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(#7a1f8a, #6a9f32);
+}
