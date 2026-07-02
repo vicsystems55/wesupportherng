@@ -133,8 +133,8 @@
         </div>
 
         <div class="mt-12 grid gap-7 lg:grid-cols-3">
-          <div v-for="area in impactAreas" :key="area.titl"
-            class="reveal group relative min-h-[320px] overflow-hidden rounded-3xl border bg-white p-8 text-center shadow-sm transition duration-300 hover:-translate-y-2 hover:shadow-xl"
+          <div v-for="area in impactAreas" :key="area.title"
+            class="revea group relative min-h-[320px] overflow-hidden rounded-3xl border bg-white p-8 text-center shadow-sm transition duration-300 hover:-translate-y-2 hover:shadow-xl"
             :class="area.border">
             <div
               class="absolute -top-1 left-1/2 flex h-20 w-20 -translate-x-1/2 items-center justify-center rounded-full shadow-md"
