@@ -111,13 +111,15 @@
                 <Gem class="h-10 w-10 text-accent" />
               </div>
               <h3 class="mb-4 text-sm font-black uppercase text-accent">
-                Our Core Values (ACCEPT)
+                Our Core Values (E.M.E.R.G.E) 
               </h3>
               <ul class="space-y-1 text-sm font-medium leading-relaxed text-dark/75">
-                <li>Accountability</li>
-                <li>Commitment</li>
-                <li>Community</li>
-
+                <li>Empower</li>
+                <li>Motivate</li>
+                <li>Encourage</li>
+                <li>Raise Awareness</li>
+                <li>Galvanize Action</li>
+                <li>Elevate Voices</li>
               </ul>
             </div>
           </div>
@@ -252,7 +254,7 @@
         <div class="mt-8 grid gap-8 lg:grid-cols-[1fr_1.35fr]">
           <div class="reveal rounded-2xl border border-black/5 bg-white p-6 shadow-sm">
             <div class="grid gap-6 sm:grid-cols-[170px_1fr]">
-              <img src="@/assets/images/girl.png" alt="Founder" class="mx-auto h-44 w-44 rounded-full object-cover" />
+              <img src="@/assets/images/founder.jpeg" alt="Founder" class="mx-auto h-60 w-50 rounded-full object-cover" />
 
               <div>
                 <p class="text-sm font-black uppercase text-secondary">
