@@ -1,7 +1,9 @@
 <template>
   <DefaultLayout>
+        <HeroSlider />
+
     <!-- HERO SECTION -->
-    <section class="relative overflow-hidden bg-white">
+    <!-- <section class="relative overflow-hidden bg-white">
       <div class="absolute inset-0 z-0 hidden md:block" aria-hidden="true">
         <img src="@/assets/images/home-hero-bg.png" alt=""
           class="absolute right-0 top-1/2 h-full max-w-none -translate-y-1/2 object-contain" />
@@ -53,7 +55,7 @@
             fill="#fff8f2" />
         </svg>
       </div>
-    </section>
+    </section> -->
 
     <!-- WHO WE ARE + IMPACT AREAS SECTION -->
     <section class="relative overflow-hidden bg-cream px-4 py-20 sm:px-5">
@@ -375,6 +377,7 @@ import { useSeoMeta } from '@unhead/vue'
 import gsap from 'gsap'
 import DefaultLayout from '@/layouts/DefaultLayout.vue'
 import { Eye, Target, Gem, Heart, Landmark, Megaphone } from 'lucide-vue-next'
+import HeroSlider from '@/components/HeroSlider.vue'
 
 useSeoMeta({
   title: 'WeSupportHer | Empowering Women and Girls',
