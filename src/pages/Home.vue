@@ -1,47 +1,7 @@
 <template>
   <DefaultLayout>
         <HeroSlider />
-
-    <!-- HERO SECTION -->
-    <!-- <section class="relative overflow-hidden bg-white">
-      <div class="absolute inset-0 z-0 hidden md:block" aria-hidden="true">
-        <img src="@/assets/images/home-hero-bg.png" alt=""
-          class="absolute right-0 top-1/2 h-full max-w-none -translate-y-1/2 object-contain" />
-      </div>
-
-      <div class="relative z-10 mx-auto max-w-7xl px-4 pb-32 pt-20 sm:px-5 sm:pb-40 sm:pt-28 lg:pb-48 lg:pt-36">
-        <div class="max-w-2xl reveal">
-          <p
-            class="mb-4 inline-flex rounded-full bg-soft-purple px-3 py-1.5 text-xs font-bold text-primary sm:px-4 sm:py-2 sm:text-sm">
-            Empowering Women. Uplifting Communities. Building Futures.
-          </p>
-
-          <h1 class="font-display text-4xl font-bold leading-tight text-dark sm:text-5xl md:text-6xl lg:text-7xl">
-            Empowering Women and Girls to
-            <span class="text-secondary">Thrive.</span>
-          </h1>
-
-          <p class="mt-4 text-base leading-relaxed text-dark/75 sm:mt-6 sm:text-lg">
-            WeSupportHer is a women-led nonprofit organization committed to
-            advancing gender equity through health, leadership, advocacy,
-            and community-driven action.
-          </p>
-
-          <div class="mt-6 flex flex-wrap gap-3 sm:mt-8 sm:gap-4">
-            <RouterLink to="/about-us"
-              class="rounded-xl bg-secondary px-5 py-3 text-sm font-bold text-white transition hover:scale-105 sm:px-6 sm:py-4 sm:text-base">
-              Learn More About Us
-            </RouterLink>
-
-            <RouterLink to="/impact"
-              class="rounded-xl border border-secondary px-5 py-3 text-sm font-bold text-secondary transition hover:bg-secondary hover:text-white sm:px-6 sm:py-4 sm:text-base">
-              Watch Our Impact
-            </RouterLink>
-          </div>
-        </div>
-      </div>
-
-      <div class="pointer-events-none absolute bottom-0 left-0 z-20 w-full overflow-hidden leading-none">
+           <!-- <div class="pointer-events-none absolute bottom-0 left-0 z-20 w-full overflow-hidden leading-none">
         <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none"
           class="block h-[100px] w-full sm:h-[120px] md:h-[140px]">
           <path
@@ -54,184 +14,368 @@
             d="M0,120 V105 c90,-35,180,-15,290,8 c110,22,210,12,330,-15 c120,-28,220,-18,350,10 c90,18,160,12,230,-10 V120Z"
             fill="#fff8f2" />
         </svg>
+      </div> -->
+
+    <!-- HERO SECTION -->
+   
+
+<!-- WHO WE ARE SECTION -->
+<!-- =========================
+ WHO WE ARE
+========================== -->
+<section class="relative overflow-hidden bg-cream py-24">
+  <!-- Background Leaves -->
+  <img
+    src="@/assets/images/leaves.png"
+    class="absolute left-0 top-10 w-56 opacity-10"
+    alt=""
+  />
+
+  <img
+    src="@/assets/images/leaves.png"
+    class="absolute right-0 bottom-0 w-72 rotate-180 opacity-10"
+    alt=""
+  />
+
+  <div class="relative mx-auto max-w-7xl px-5">
+
+    <!-- Heading -->
+    <div class="mx-auto max-w-3xl text-center reveal">
+
+      <span
+        class="inline-flex rounded-full bg-secondary/10 px-4 py-2 text-xs font-bold uppercase tracking-[0.25em] text-secondary">
+        About WeSupportHer
+      </span>
+
+      <h2
+        class="mt-6 font-display text-4xl font-bold leading-tight text-dark md:text-5xl">
+        Building a Future where
+        <span class="text-secondary">
+          Every Woman and Girl
+        </span>
+        Can Thrive.
+      </h2>
+
+      <p
+        class="mt-6 text-base leading-relaxed text-dark/70 md:text-lg">
+        WeSupportHer (WSH) is a women-led nonprofit committed to advancing
+        gender equality through education, advocacy, leadership development,
+        health awareness and strategic partnerships that empower women and
+        girls to reach their full potential.
+      </p>
+
+    </div>
+
+    <!-- Vision + Mission -->
+    <div
+      class="mt-16 grid gap-8 lg:grid-cols-2">
+
+      <!-- Vision -->
+      <div
+        class="group rounded-3xl border border-primary/10 bg-white p-10 shadow-sm transition hover:-translate-y-2 hover:shadow-xl">
+
+        <div
+          class="flex h-20 w-20 items-center justify-center rounded-2xl bg-soft-purple">
+
+          <Eye class="h-10 w-10 text-primary"/>
+
+        </div>
+
+        <h3
+          class="mt-8 text-3xl font-bold text-primary">
+          Our Vision
+        </h3>
+
+        <p
+          class="mt-5 text-base leading-relaxed text-dark/75">
+          A world where every girl and woman enjoys equal rights,
+          opportunities, dignity, leadership, and meaningful representation.
+        </p>
+
       </div>
-    </section> -->
 
-    <!-- WHO WE ARE + IMPACT AREAS SECTION -->
-    <section class="relative overflow-hidden bg-cream px-4 py-20 sm:px-5">
-      <img src="@/assets/images/leaves.png" alt=""
-        class="pointer-events-none absolute -left-16 top-24 w-56 opacity-20" />
+      <!-- Mission -->
+      <div
+        class="group rounded-3xl border border-secondary/10 bg-white p-10 shadow-sm transition hover:-translate-y-2 hover:shadow-xl">
 
-      <img src="@/assets/images/leaves.png" alt=""
-        class="pointer-events-none absolute -right-20 bottom-20 w-72 rotate-180 opacity-20" />
+        <div
+          class="flex h-20 w-20 items-center justify-center rounded-2xl bg-soft-orange">
 
-      <div class="relative z-10 mx-auto max-w-7xl">
-        <div class="grid gap-8 lg:grid-cols-[1.2fr_2fr]">
-          <div class="reveal">
-            <p class="text-xl font-black uppercase tracking-wide text-secondary">
-              Who We Are
-            </p>
-            <div class="mt-3 h-1 w-12 rounded-full bg-secondary"></div>
+          <Target class="h-10 w-10 text-secondary"/>
 
-            <p class="mt-6 max-w-lg text-sm font-semibold leading-relaxed text-dark/80">
-              WeSupportHer (WSH) was founded in 2024 to advance gender equity by
-              promoting girls’ and women’s health, amplifying their voices,
-              supporting leadership, and increasing participation in governance
-              and decision-making.
-            </p>
-          </div>
+        </div>
 
-          <div class="grid gap-5 md:grid-cols-3">
-            <div class="reveal rounded-2xl border border-primary/15 bg-white/80 p-7 text-center shadow-sm">
-              <div class="mx-auto mb-5 flex h-20 w-20 items-center justify-center rounded-full bg-soft-purple">
-                <Eye class="h-10 w-10 text-primary" />
-              </div>
-              <h3 class="mb-4 text-sm font-black uppercase text-primary">
-                Our Vision
-              </h3>
-              <p class="text-sm font-medium leading-relaxed text-dark/75">
-                A world where every girl and woman enjoys equal rights,
-                opportunities, dignity, and representation.
-              </p>
-            </div>
+        <h3
+          class="mt-8 text-3xl font-bold text-secondary">
+          Our Mission
+        </h3>
 
-            <div class="reveal rounded-2xl border border-secondary/15 bg-white/80 p-7 text-center shadow-sm">
-              <div class="mx-auto mb-5 flex h-20 w-20 items-center justify-center rounded-full bg-soft-orange">
-                <Target class="h-10 w-10 text-secondary" />
-              </div>
-              <h3 class="mb-4 text-sm font-black uppercase text-secondary">
-                Our Mission
-              </h3>
-              <p class="text-sm font-medium leading-relaxed text-dark/75">
-                To advance gender equity through advocacy, education,
-                partnerships, and action.
-              </p>
-            </div>
+        <p
+          class="mt-5 text-base leading-relaxed text-dark/75">
+          To advance gender equity through advocacy, education,
+          partnerships, innovation and collective action that
+          transform communities.
+        </p>
 
-            <div class="reveal rounded-2xl border border-accent/15 bg-white/80 p-7 text-center shadow-sm">
-              <div class="mx-auto mb-5 flex h-20 w-20 items-center justify-center rounded-full bg-soft-green">
-                <Gem class="h-10 w-10 text-accent" />
-              </div>
-              <h3 class="mb-4 text-sm font-black uppercase text-accent">
-                Our Core Values (E.M.E.R.G.E) 
-              </h3>
-              <ul class="space-y-1 text-sm font-medium leading-relaxed text-dark/75">
-                <li>Empower</li>
-                <li>Motivate</li>
-                <li>Encourage</li>
-                <li>Raise Awareness</li>
-                <li>Galvanize Action</li>
-                <li>Elevate Voices</li>
-              </ul>
-            </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+
+
+     <CoreValuesSection />
+
+<!-- =========================
+ OUR AREAS OF IMPACT
+========================== -->
+<section class="relative overflow-hidden bg-white py-24">
+  <!-- Background accents -->
+  <img
+    src="@/assets/images/leaves.png"
+    alt=""
+    class="pointer-events-none absolute -right-20 bottom-20 w-72 rotate-180 opacity-10"
+  />
+
+  <div class="absolute left-0 top-0 h-72 w-72 rounded-full bg-soft-purple/50 blur-3xl"></div>
+  <div class="absolute right-0 bottom-0 h-72 w-72 rounded-full bg-soft-green/50 blur-3xl"></div>
+
+  <div class="relative z-10 mx-auto max-w-7xl px-5">
+    <!-- Heading -->
+    <div class="mx-auto max-w-3xl text-center reveal">
+      <span class="inline-flex rounded-full bg-soft-purple px-5 py-2 text-xs font-black uppercase tracking-[0.25em] text-primary">
+        Our Impact Areas
+      </span>
+
+      <h2 class="mt-6 font-display text-4xl font-black leading-tight text-dark md:text-5xl">
+        Focused on the Issues That Matter
+        <span class="text-secondary">Most.</span>
+      </h2>
+
+      <p class="mt-6 text-base leading-relaxed text-dark/70 md:text-lg">
+        Our programmes are built around the most important needs of women and girls:
+        health, leadership, representation, advocacy, and community empowerment.
+      </p>
+
+      <div class="mx-auto mt-5 flex w-32 items-center justify-center gap-2">
+        <span class="h-1 w-10 rounded-full bg-primary"></span>
+        <span class="h-1 w-10 rounded-full bg-secondary"></span>
+        <span class="h-1 w-10 rounded-full bg-accent"></span>
+      </div>
+    </div>
+
+    <!-- Impact Cards -->
+    <div class="mt-16 grid gap-8 lg:grid-cols-3">
+      <div
+        v-for="area in impactAreas"
+        :key="area.title"
+        class="revea group overflow-hidden rounded-3xl border bg-white shadow-md shadow-black/5 transition duration-300 hover:-translate-y-2 hover:shadow-xl"
+        :class="area.border"
+      >
+        <!-- Image -->
+        <div class="relative h-56 overflow-hidden">
+          <img
+            :src="area.image"
+            :alt="area.title"
+            class="h-full w-full object-cover transition duration-700 group-hover:scale-110"
+          />
+
+          <div class="absolute inset-0 bg-gradient-to-t from-dark/55 via-dark/10 to-transparent"></div>
+
+          <div
+            class="absolute bottom-4 left-5 rounded-full px-4 py-2 text-xs font-black uppercase tracking-wide text-white"
+            :class="area.badgeBg"
+          >
+            {{ area.tag }}
           </div>
         </div>
 
-        <div class="mt-20 text-center reveal">
-          <h2 class="font-display text-3xl font-bold text-dark sm:text-4xl">
-            Our Areas of Impact
-          </h2>
-          <p class="mt-2 text-sm font-semibold text-dark/70">
-            Focused on health, leadership, representation and empowerment.
+        <!-- Content -->
+        <div class="p-7">
+          <div class="mb-4 flex items-center justify-between">
+            <div class="h-1 w-14 rounded-full" :class="area.lineBg"></div>
+
+            <span
+              class="flex h-10 w-10 items-center justify-center rounded-full text-sm font-black"
+              :class="[area.softBg, area.textColor]"
+            >
+              {{ area.number }}
+            </span>
+          </div>
+
+          <h3 class="text-2xl font-black" :class="area.textColor">
+            {{ area.title }}
+          </h3>
+
+          <p class="mt-1 text-sm font-bold text-dark/60">
+            {{ area.subtitle }}
           </p>
-        </div>
 
-        <div class="mt-12 grid gap-7 lg:grid-cols-3">
-          <div v-for="area in impactAreas" :key="area.title"
-            class="revea group relative min-h-[320px] overflow-hidden rounded-3xl border bg-white p-8 text-center shadow-sm transition duration-300 hover:-translate-y-2 hover:shadow-xl"
-            :class="area.border">
-            <div
-              class="absolute -top-1 left-1/2 flex h-20 w-20 -translate-x-1/2 items-center justify-center rounded-full shadow-md"
-              :class="area.iconBg">
-              <component :is="area.icon" class="h-10 w-10" :class="area.textColor" />
-            </div>
-
-            <div class="relative z-10 pt-10">
-              <h3 class="text-2xl font-black" :class="area.textColor">
-                {{ area.title }}
-              </h3>
-
-              <p class="mt-1 text-sm font-bold" :class="area.textColor">
-                {{ area.subtitle }}
-              </p>
-
-              <p class="mx-auto mt-4 max-w-xs text-sm font-medium leading-relaxed text-dark/70">
-                {{ area.description }}
-              </p>
-
-              <RouterLink to="/our-initiatives"
-                class="mt-5 inline-flex rounded-lg border px-5 py-2 text-sm font-bold transition hover:bg-secondary hover:text-white"
-                :class="[area.button, area.border]">
-                Learn More →
-              </RouterLink>
-            </div>
-
-            <img src="@/assets/images/girl.png" alt=""
-              class="pointer-events-none absolute bottom-0 left-0 max-h-28 w-auto object-contain" />
-
-            <img src="@/assets/images/girl.png" alt=""
-              class="pointer-events-none absolute bottom-0 right-0 max-h-28 w-auto object-contain" />
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- OUR INITIATIVES SECTION -->
-    <section class="relative overflow-hidden bg-white px-4 pb-12 pt-12 sm:px-5 sm:pb-16 sm:pt-16 md:pb-24">
-      <div class="relative z-10 mx-auto max-w-7xl">
-        <div class="mb-8 text-center sm:mb-10 md:mb-12">
-          <p class="text-xs font-bold uppercase tracking-widest text-secondary sm:text-sm">
-            Our Key Initiatives
+          <p class="mt-4 text-sm font-medium leading-relaxed text-dark/70">
+            {{ area.description }}
           </p>
 
-          <div class="mx-auto mt-2 h-1 w-12 rounded-full bg-secondary sm:w-14"></div>
-
-          <h2 class="mt-3 px-2 font-display text-2xl font-bold text-dark sm:mt-4 sm:text-3xl md:text-4xl">
-            Creating Impact. Changing Lives.
-          </h2>
-        </div>
-
-        <div class="grid gap-4 sm:gap-5 md:gap-6 lg:grid-cols-3">
-          <div v-for="item in initiatives" :key="item.title"
-            class="group relative overflow-hidden rounded-2xl border bg-white p-4 shadow-sm transition-all duration-300 hover:-translate-y-2 hover:shadow-xl sm:p-5 md:p-6"
-            :class="item.border">
-            <img src="@/assets/images/leaves.png" alt=""
-              class="pointer-events-none absolute right-0 top-1/2 w-24 -translate-y-1/2 opacity-10 transition-all duration-500 group-hover:scale-110 group-hover:opacity-20 sm:w-28 md:w-32" />
-
-            <div
-              class="relative z-10 flex flex-col gap-4 sm:grid sm:grid-cols-[120px_1fr] sm:gap-5 md:grid-cols-[140px_1fr]">
-              <div class="mb-2 flex items-center justify-center sm:mb-0 sm:justify-start">
-                <img :src="item.image" :alt="item.title"
-                  class="h-[140px] w-auto object-contain transition duration-300 group-hover:scale-105 sm:h-[160px] md:h-[180px]" />
-              </div>
-
-              <div class="sm:pr-6 md:pr-8">
-                <h3 class="text-2xl font-bold sm:text-3xl" :class="item.accent">
-                  {{ item.title }}
-                </h3>
-
-                <p class="mt-1 text-xs font-semibold text-dark sm:text-sm">
-                  {{ item.tag }}
-                </p>
-
-                <ul class="mt-3 space-y-1.5 text-xs text-dark/75 sm:mt-4 sm:space-y-2 sm:text-sm">
-                  <li v-for="point in item.points" :key="point" class="flex gap-2">
-                    <span :class="item.accent" class="flex-shrink-0">•</span>
-                    <span>{{ point }}</span>
-                  </li>
-                </ul>
-
-                <RouterLink to="/our-initiatives"
-                  class="mt-4 inline-flex items-center gap-2 rounded-lg border px-3 py-2 text-xs font-bold transition hover:text-white sm:mt-5 sm:px-4 sm:text-sm"
-                  :class="item.button">
-                  Learn More →
-                </RouterLink>
-              </div>
-            </div>
-          </div>
+          <RouterLink
+            to="/our-initiatives"
+            class="mt-6 inline-flex rounded-lg border px-5 py-2 text-sm font-bold transition hover:text-white"
+            :class="area.button"
+          >
+            Learn More →
+          </RouterLink>
         </div>
       </div>
-    </section>
+    </div>
+  </div>
+</section>
+
+
+
+<!-- =========================
+ OUR KEY INITIATIVES
+========================== -->
+<section class="relative overflow-hidden bg-white py-24">
+  <!-- Background Decoration -->
+  <img
+    src="@/assets/images/leaves.png"
+    alt=""
+    class="pointer-events-none absolute -left-16 top-10 w-64 opacity-10"
+  />
+
+  <img
+    src="@/assets/images/leaves.png"
+    alt=""
+    class="pointer-events-none absolute -right-16 bottom-10 w-72 rotate-180 opacity-10"
+  />
+
+  <div class="absolute left-0 top-0 h-72 w-72 rounded-full bg-soft-purple/50 blur-3xl"></div>
+  <div class="absolute right-0 bottom-0 h-72 w-72 rounded-full bg-soft-orange/50 blur-3xl"></div>
+
+  <div class="relative z-10 mx-auto max-w-7xl px-5">
+
+    <!-- Heading -->
+    <div class="mx-auto max-w-3xl text-center reveal">
+
+      <span
+        class="inline-flex rounded-full bg-soft-orange px-5 py-2 text-xs font-black uppercase tracking-[0.25em] text-secondary">
+        Our Key Initiatives
+      </span>
+
+      <h2
+        class="mt-6 font-display text-4xl font-black leading-tight text-dark md:text-5xl">
+        Creating
+        <span class="text-secondary">Impact</span>,
+        Changing Lives.
+      </h2>
+
+      <p
+        class="mt-6 text-base leading-relaxed text-dark/70 md:text-lg">
+        Through strategic programmes and community-driven initiatives,
+        WeSupportHer addresses some of the most pressing issues affecting
+        women and girls.
+      </p>
+
+      <div class="mx-auto mt-5 flex w-32 items-center justify-center gap-2">
+        <span class="h-1 w-10 rounded-full bg-primary"></span>
+        <span class="h-1 w-10 rounded-full bg-secondary"></span>
+        <span class="h-1 w-10 rounded-full bg-accent"></span>
+      </div>
+
+    </div>
+
+    <!-- Cards -->
+    <div class="mt-16 grid gap-8 lg:grid-cols-3">
+
+      <div
+        v-for="item in initiatives"
+        :key="item.title"
+        class="revea group overflow-hidden rounded-3xl border bg-white shadow-md shadow-black/5 transition duration-300 hover:-translate-y-2 hover:shadow-xl"
+        :class="item.border"
+      >
+
+        <!-- Illustration Area -->
+        <div class="relative flex justify-center overflow-hidden bg-gradient-to-b from-white to-gray-50 p-8">
+
+          <img
+            src="@/assets/images/leaves.png"
+            class="absolute right-0 top-1/2 w-40 -translate-y-1/2 opacity-10 transition duration-500 group-hover:scale-110"
+          />
+
+          <img
+            :src="item.image"
+            :alt="item.title"
+            class="relative z-10 h-56 object-contain transition duration-500 group-hover:scale-105"
+          />
+
+          <!-- Icon Badge -->
+          <div
+            class="absolute left-6 top-6 flex h-14 w-14 items-center justify-center rounded-2xl shadow-lg"
+            :class="item.iconBg"
+          >
+            <component
+              :is="item.icon"
+              class="h-7 w-7"
+              :class="item.accent"
+            />
+          </div>
+
+        </div>
+
+        <!-- Content -->
+        <div class="p-8">
+
+          <div
+            class="mb-5 h-1 w-14 rounded-full"
+            :class="item.lineBg"
+          ></div>
+
+          <h3
+            class="text-3xl font-black"
+            :class="item.accent"
+          >
+            {{ item.title }}
+          </h3>
+
+          <p class="mt-2 text-sm font-bold text-dark/60">
+            {{ item.tag }}
+          </p>
+
+          <ul
+            class="mt-5 space-y-3 text-sm leading-relaxed text-dark/70">
+
+            <li
+              v-for="point in item.points"
+              :key="point"
+              class="flex gap-3"
+            >
+              <span
+                class="mt-[7px] h-2 w-2 rounded-full"
+                :class="item.dot"
+              ></span>
+
+              <span>{{ point }}</span>
+
+            </li>
+
+          </ul>
+
+          <RouterLink
+            to="/our-initiatives"
+            class="mt-8 inline-flex rounded-xl border px-5 py-3 text-sm font-bold transition hover:text-white"
+            :class="item.button"
+          >
+            Learn More →
+          </RouterLink>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+</section>
 
     <!-- IMPACT / FOUNDER / EVENTS / CTA SECTION -->
     <section class="relative overflow-hidden bg-cream px-4 pb-24 pt-8 sm:px-5">
@@ -378,6 +522,7 @@ import gsap from 'gsap'
 import DefaultLayout from '@/layouts/DefaultLayout.vue'
 import { Eye, Target, Gem, Heart, Landmark, Megaphone } from 'lucide-vue-next'
 import HeroSlider from '@/components/HeroSlider.vue'
+import CoreValuesSection from '@/components/CoreValuesSection.vue'
 
 useSeoMeta({
   title: 'WeSupportHer | Empowering Women and Girls',
@@ -390,37 +535,49 @@ useSeoMeta({
 
 const impactAreas = [
   {
+    number: '01',
     title: 'Health & Wellbeing',
     subtitle: 'RedBubble & MenoWise',
+    tag: 'Health',
+    image: new URL('@/assets/images/core (1).JPG', import.meta.url).href,
     description:
       'Supporting girls and women through menstrual health education, menopause awareness, hygiene support, and wellbeing initiatives.',
-    icon: Heart,
     textColor: 'text-pink-600',
-    iconBg: 'bg-pink-100',
+    softBg: 'bg-pink-100',
+    badgeBg: 'bg-pink-600',
+    lineBg: 'bg-pink-600',
     border: 'border-pink-200',
-    button: 'text-pink-600 hover:border-secondary',
+    button: 'border-pink-500 text-pink-600 hover:bg-pink-600',
   },
   {
+    number: '02',
     title: 'Leadership & Governance',
     subtitle: 'SheRepresents',
+    tag: 'Leadership',
+    image: new URL('@/assets/images/core (2).JPG', import.meta.url).href,
     description:
-      'Promoting women’s participation in politics, governance and decision-making for a more inclusive and equitable society.',
-    icon: Landmark,
+      'Promoting women’s participation in politics, governance, leadership, and decision-making for a more inclusive society.',
     textColor: 'text-primary',
-    iconBg: 'bg-soft-purple',
+    softBg: 'bg-soft-purple',
+    badgeBg: 'bg-primary',
+    lineBg: 'bg-primary',
     border: 'border-purple-200',
-    button: 'text-primary hover:border-secondary',
+    button: 'border-primary text-primary hover:bg-primary',
   },
   {
+    number: '03',
     title: 'Advocacy & Storytelling',
     subtitle: 'WeSupportHer Platform',
+    tag: 'Advocacy',
+    image: new URL('@/assets/images/core (3).JPG', import.meta.url).href,
     description:
-      'Amplifying voices, celebrating achievements and raising awareness about issues affecting girls and women.',
-    icon: Megaphone,
+      'Amplifying voices, celebrating achievements, raising awareness, and driving conversations around issues affecting women and girls.',
     textColor: 'text-accent',
-    iconBg: 'bg-soft-green',
+    softBg: 'bg-soft-green',
+    badgeBg: 'bg-accent',
+    lineBg: 'bg-accent',
     border: 'border-green-200',
-    button: 'text-accent hover:border-secondary',
+    button: 'border-accent text-accent hover:bg-accent',
   },
 ]
 
