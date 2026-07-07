@@ -2,11 +2,11 @@
   <section class="relative isolate overflow-hidden bg-white">
     <!-- Background Image -->
     <div class="absolute inset-0">
-      <img
-        src="@/assets/images/our-initiatives-page-bg.jpg"
-        alt="WeSupportHer initiatives"
-        class="h-full w-full object-cover object-[center_top]"
-      />
+<img
+  src="@/assets/images/our-initiatives-page-bg.jpg"
+  alt="WeSupportHer initiatives"
+  class="h-full w-full object-cover object-[50%_15%]"
+/>
 
       <div class="absolute inset-0 bg-gradient-to-r from-dark/90 via-primary/65 to-secondary/35"></div>
     </div>
