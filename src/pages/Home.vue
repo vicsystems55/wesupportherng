@@ -74,7 +74,7 @@
             </h3>
 
             <p class="mt-5 text-base leading-relaxed text-dark/75">
-              A world where every girl and woman enjoys equal rights,
+              A world where every woman and girl enjoys equal rights,
               opportunities, dignity, leadership, and meaningful representation.
             </p>
 
@@ -663,21 +663,21 @@ const impactStats = [
   },
   {
     icon: MapPinned,
-    value: '100+',
+    value: '5+',
     label: 'Communities',
     color: 'text-secondary',
     bg: 'bg-soft-orange',
   },
   {
     icon: Megaphone,
-    value: '20+',
+    value: '9+',
     label: 'Campaigns',
     color: 'text-accent',
     bg: 'bg-soft-green',
   },
   {
     icon: Handshake,
-    value: '10+',
+    value: '4+',
     label: 'Partners',
     color: 'text-primary',
     bg: 'bg-soft-purple',
