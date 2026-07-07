@@ -5,19 +5,19 @@
 
     <div class="relative z-10 mx-auto max-w-7xl px-5">
       <div class="mx-auto max-w-3xl text-center reveal">
-        <span class="inline-flex rounded-full bg-soft-purple px-5 py-2 text-xs font-black uppercase tracking-[0.25em] text-primary">
-          Our Initiatives
+        <span class="inline-flex rounded-full bg-soft-orange px-5 py-2 text-xs font-black uppercase tracking-[0.25em] text-secondary">
+          Three Core Initiatives
         </span>
 
         <h2 class="mt-6 font-display text-4xl font-black leading-tight text-dark md:text-5xl">
-          Focused programmes creating
-          <span class="text-secondary">real change.</span>
+          Strategic programmes designed to
+          <span class="text-secondary">meet real needs.</span>
         </h2>
 
         <p class="mt-6 text-base leading-relaxed text-dark/70 md:text-lg">
-          WeSupportHer expands its mission through three major initiatives:
-          RedBubble, MenoWise and SheRepresents. Each initiative addresses a
-          specific need affecting women and girls.
+          Each WSH initiative responds to a specific challenge affecting women
+          and girls, from menstrual health and menopause support to leadership,
+          governance and advocacy.
         </p>
 
         <div class="mx-auto mt-5 flex w-32 items-center justify-center gap-2">
@@ -36,10 +36,10 @@
           :class="item.border"
         >
           <div
-            class="grid items-center gap-0 lg:grid-cols-2"
+            class="grid items-center lg:grid-cols-2"
             :class="{ 'lg:[&>*:first-child]:order-2': index % 2 === 1 }"
           >
-            <div class="relative flex min-h-[420px] items-end justify-center overflow-hidden p-8" :class="item.softBg">
+            <div class="relative flex min-h-[430px] items-end justify-center overflow-hidden p-8" :class="item.softBg">
               <img
                 src="@/assets/images/leaves.png"
                 alt=""
@@ -120,15 +120,15 @@ const initiatives = [
     tag: 'Flagship Initiative',
     image: new URL('@/assets/images/red-bubble.png', import.meta.url).href,
     description:
-      'RedBubble is WSH’s flagship menstrual health advocacy initiative created to address period poverty, menstrual stigma, and limited access to accurate menstrual health information and hygiene products.',
+      'RedBubble is WSH’s flagship menstrual health advocacy initiative dedicated to promoting menstrual health, hygiene education and dignity. It addresses period poverty, breaks stigma and supports girls and women with accurate information and essential hygiene products.',
     focusAreas: [
-      'Menstrual health education',
+      'Menstrual health and hygiene education',
       'Period poverty intervention',
-      'Pad distribution drives',
-      'School and community outreach',
+      'Pad distribution and outreach',
+      'Menstrual stigma reduction',
     ],
     goal:
-      'To ensure that no girl misses opportunities because of her period and that every girl can menstruate with dignity, confidence, and access to support.',
+      'To ensure that no girl misses opportunities because of her period, and that every girl can menstruate with dignity, confidence and access to support.',
     textColor: 'text-pink-600',
     softBg: 'bg-pink-50',
     highlightBg: 'bg-pink-50',
@@ -145,15 +145,15 @@ const initiatives = [
     tag: 'Women’s Health',
     image: new URL('@/assets/images/woman.png', import.meta.url).href,
     description:
-      'MenoWise raises awareness about menopause and promotes informed conversations around women’s midlife health, providing practical information, support, and a stronger sense of community.',
+      'MenoWise creates awareness around menopause and promotes informed conversations about women’s midlife health. The initiative provides education, resources, support conversations and safe spaces for women navigating this important life stage.',
     focusAreas: [
       'Menopause education',
       'Awareness campaigns',
-      'Support conversations',
-      'Workplace and community dialogue',
+      'Workplace conversations',
+      'Community support and resources',
     ],
     goal:
-      'To help women better understand and manage menopause with confidence, dignity, reliable information, and supportive conversations.',
+      'To help women better understand and manage menopause with confidence, dignity, reliable information and supportive community conversations.',
     textColor: 'text-primary',
     softBg: 'bg-soft-purple',
     highlightBg: 'bg-soft-purple',
@@ -170,7 +170,7 @@ const initiatives = [
     tag: 'Leadership',
     image: new URL('@/assets/images/preach.png', import.meta.url).href,
     description:
-      'SheRepresents advances women’s participation in politics, governance, leadership, and decision-making by equipping women with the knowledge, confidence, mentorship and support needed to lead.',
+      'SheRepresents advances women’s participation in politics, governance and public decision-making. It equips women with knowledge, confidence, mentorship and advocacy support needed to step into leadership and influence policy processes.',
     focusAreas: [
       'Leadership development',
       'Political participation advocacy',
@@ -178,7 +178,7 @@ const initiatives = [
       'Inclusive governance campaigns',
     ],
     goal:
-      'To build a future where women’s voices are represented in leadership and decision-making spaces that shape communities and society.',
+      'To build a future where women are fully represented in leadership and decision-making spaces, and where governance reflects the diversity of the communities it serves.',
     textColor: 'text-accent',
     softBg: 'bg-soft-green',
     highlightBg: 'bg-soft-green',

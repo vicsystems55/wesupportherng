@@ -79,7 +79,7 @@
       </div>
 
       <!-- Team Grid -->
-      <div class="mt-14 grid gap-7 sm:grid-cols-2 lg:grid-cols-4">
+      <div class="mt-14 grid gap-7 sm:grid-cols-2 lg:grid-cols-3">
         <article
           v-for="member in team"
           :key="member.name"
@@ -175,16 +175,7 @@ const team = [
     badge: 'bg-secondary',
     line: 'bg-secondary',
     border: 'border-secondary/15',
-  },
-  {
-    name: 'Programme Coordinator',
-    role: 'Programmes & Outreach',
-    unit: 'Outreach',
-    text: 'Coordinates field activities, school outreaches, community sessions, and campaign delivery.',
-    color: 'text-accent',
-    badge: 'bg-accent',
-    line: 'bg-accent',
-    border: 'border-accent/15',
   }
+  
 ]
 </script>
