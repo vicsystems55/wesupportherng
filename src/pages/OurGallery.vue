@@ -3,6 +3,7 @@
     <GalleryHeroSection />
     <GallerySliderSection />
     <GalleryTimelineSection />
+    <MasonryGallerySection />
   </DefaultLayout>
 </template>
 
@@ -12,6 +13,7 @@ import DefaultLayout from '@/layouts/DefaultLayout.vue'
 import GalleryHeroSection from '@/components/gallery/GalleryHeroSection.vue'
 import GallerySliderSection from '@/components/gallery/GallerySliderSection.vue'
 import GalleryTimelineSection from '@/components/gallery/GalleryTimelineSection.vue'
+import MasonryGallerySection from '@/components/gallery/MasonryGallerySection.vue'
 
 useSeoMeta({
   title: 'Gallery | WeSupportHer',
