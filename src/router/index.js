@@ -32,6 +32,12 @@ const routes = [
     name: "OurGallery",
     component: () => import("@/pages/OurGallery.vue"),
   },
+
+    {
+    path: "/donate",
+    name: "Donate",
+    component: () => import("@/pages/Donate.vue"),
+  },
   {
     path: "/contact-us",
     name: "Contact",

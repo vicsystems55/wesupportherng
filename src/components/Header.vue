@@ -12,7 +12,7 @@
       </nav>
 
       <RouterLink
-        to="/get-involved"
+        to="/donate"
         class="hidden rounded-xl bg-secondary px-5 py-3 text-sm font-bold text-white shadow-lg shadow-orange-500/20 transition hover:bg-primary lg:inline-flex"
       >
         Donate Now
