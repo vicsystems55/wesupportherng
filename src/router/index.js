@@ -28,6 +28,11 @@ const routes = [
     component: () => import("@/pages/NewsEvents.vue"),
   },
   {
+    path: "/our-gallery",
+    name: "OurGallery",
+    component: () => import("@/pages/OurGallery.vue"),
+  },
+  {
     path: "/contact-us",
     name: "Contact",
     component: () => import("@/pages/Contact.vue"),

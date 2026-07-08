@@ -57,7 +57,9 @@ const navItems = [
   { label: 'Our Initiatives', path: '/our-initiatives' },
   { label: 'Impact', path: '/impact' },
   { label: 'Get Involved', path: '/get-involved' },
-  { label: 'News & Events', path: '/news-events' },
+  // { label: 'News & Events', path: '/news-events' },
+  { label: 'Our Gallery', path: '/our-gallery' },
+
   { label: 'Contact Us', path: '/contact-us' },
 ]
 </script>
