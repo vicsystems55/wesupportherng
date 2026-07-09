@@ -564,6 +564,7 @@
 import { ref } from 'vue'
 import DefaultLayout from '@/layouts/DefaultLayout.vue'
 import { useSeoMeta } from '@unhead/vue'
+import policyPDF from '@/assets/policy.pdf'
 
 useSeoMeta({
   title: 'Volunteer Policy | WeSupportHer',
@@ -663,8 +664,12 @@ const printPolicy = () => {
 }
 
 const downloadPDF = () => {
-  // Add your PDF download logic here
-  alert('PDF download functionality coming soon!')
+  const link = document.createElement('a')
+  link.href = policyPDF
+  link.download = 'WeSupportHer_Volunteer_Policy.pdf'
+  document.body.appendChild(link)
+  link.click()
+  document.body.removeChild(link)
 }
 </script>
 
