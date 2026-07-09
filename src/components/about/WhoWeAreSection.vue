@@ -1,88 +1,164 @@
 <template>
-    <section class="relative overflow-hidden bg-cream py-24">
-        <img src="@/assets/images/leaves.png" alt=""
-            class="pointer-events-none absolute -left-20 top-16 w-72 opacity-10" />
+<section class="relative overflow-hidden bg-cream py-24">
+  <img
+    src="@/assets/images/leaves.png"
+    alt=""
+    class="pointer-events-none absolute -left-20 top-16 w-72 opacity-10"
+  />
 
-        <img src="@/assets/images/leaves.png" alt=""
-            class="pointer-events-none absolute -right-24 bottom-8 w-80 rotate-180 opacity-10" />
+  <img
+    src="@/assets/images/leaves.png"
+    alt=""
+    class="pointer-events-none absolute -right-24 bottom-8 w-80 rotate-180 opacity-10"
+  />
 
-        <div class="relative z-10 mx-auto max-w-7xl px-5">
-            <div class="grid items-center gap-12 lg:grid-cols-[1fr_1.15fr]">
-                <!-- Image -->
-                <div class="reveal relative">
-                    <div class="absolute -left-5 -top-5 h-full w-full rounded-[2rem] bg-primary/10"></div>
+  <div class="relative z-10 mx-auto max-w-7xl px-5">
+    <div class="grid items-start gap-12 lg:grid-cols-[0.95fr_1.25fr]">
+      <!-- Founder Image -->
+      <div class="reveal relative lg:sticky lg:top-28">
+        <div class="absolute -left-5 -top-5 h-full w-full rounded-[2rem] bg-primary/10"></div>
 
-                    <div class="relative overflow-hidden rounded-[2rem] shadow-2xl shadow-black/10">
-                        <img src="@/assets/images/home-hero-bg-3.png" alt="WeSupportHer community outreach"
-                            class="h-[520px] w-full object-cover object-center" />
+        <div class="relative overflow-hidden rounded-[2rem] shadow-2xl shadow-black/10">
+          <img
+            src="@/assets/images/founder.jpeg"
+            alt="Toyin Bashir, Founder of WeSupportHer"
+            class="h-[560px] w-full object-cover object-top"
+          />
 
-                        <div class="absolute inset-0 bg-gradient-to-t from-dark/45 via-transparent to-transparent">
-                        </div>
+          <div class="absolute inset-0 bg-gradient-to-t from-dark/60 via-transparent to-transparent"></div>
 
-                        <div class="absolute bottom-6 left-6 right-6 rounded-2xl bg-white/90 p-5 backdrop-blur-md">
-                            <p class="text-sm font-black uppercase tracking-[0.2em] text-secondary">
-                                Women-led. Community-driven.
-                            </p>
+          <div class="absolute bottom-6 left-6 right-6 rounded-2xl bg-white/90 p-5 backdrop-blur-md">
+            <p class="text-sm font-black uppercase tracking-[0.2em] text-secondary">
+              Founder / CEO
+            </p>
 
-                            <p class="mt-2 text-sm font-semibold leading-relaxed text-dark/75">
-                                Advancing gender equity through health, advocacy, leadership and action.
-                            </p>
-                        </div>
-                    </div>
-                </div>
+            <h3 class="mt-2 text-2xl font-black text-dark">
+              Toyin Bashir
+            </h3>
 
-                <!-- Content -->
-                <div class="reveal">
-                    <span
-                        class="inline-flex rounded-full bg-soft-orange px-5 py-2 text-xs font-black uppercase tracking-[0.25em] text-secondary">
-                        Who We Are
-                    </span>
-
-                    <h2 class="mt-6 font-display text-4xl font-black leading-tight text-dark md:text-5xl">
-                        A women-led movement
-                        <span class="text-secondary">supporting women and girls</span>
-                        to thrive.
-                    </h2>
-
-                    <p class="mt-6 text-base leading-relaxed text-dark/70 md:text-lg">
-                        WeSupportHer (WSH) is a non-governmental organisation dedicated to
-                        advancing gender equity by promoting the health, leadership,
-                        representation and empowerment of girls and women.
-                    </p>
-
-                    <p class="mt-5 text-base leading-relaxed text-dark/70 md:text-lg">
-                        Founded in 2024 by Toyin Bashir, WSH exists to dismantle barriers,
-                        amplify women’s voices, and create opportunities for girls and women
-                        to realise their full potential through advocacy, education,
-                        partnerships and community-driven action.
-                    </p>
-
-                    <div class="mt-8 grid gap-4 sm:grid-cols-3">
-                        <div v-for="item in highlights" :key="item.title"
-                            class="rounded-2xl border bg-white p-6 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-lg"
-                            :class="item.border">
-                            <div class="flex h-16 w-16 items-center justify-center rounded-2xl" :class="item.bg">
-                                <component :is="item.icon" class="h-8 w-8" :class="item.color" />
-                            </div>
-
-                            <h3 class="mt-5 text-base font-black uppercase" :class="item.color">
-                                {{ item.title }}
-                            </h3>
-
-                            <p class="mt-3 text-sm leading-relaxed text-dark/65">
-                                {{ item.text }}
-                            </p>
-                        </div>
-                    </div>
-
-                    <RouterLink to="/our-initiatives"
-                        class="mt-8 inline-flex rounded-xl bg-secondary px-6 py-4 text-sm font-bold text-white transition hover:bg-primary">
-                        Explore Our Work →
-                    </RouterLink>
-                </div>
-            </div>
+            <p class="mt-2 text-sm font-semibold leading-relaxed text-dark/75">
+              Founder, WeSupportHer (WSH)
+            </p>
+          </div>
         </div>
-    </section>
+      </div>
+
+      <!-- Message Content -->
+      <div class="reveal">
+        <span
+          class="inline-flex rounded-full bg-soft-orange px-5 py-2 text-xs font-black uppercase tracking-[0.25em] text-secondary"
+        >
+          A Message From The Founder
+        </span>
+
+        <h2 class="mt-6 font-display text-4xl font-black leading-tight text-dark md:text-5xl">
+          Welcome to
+          <span class="text-secondary">WeSupportHer.</span>
+        </h2>
+
+        <div class="mt-8 rounded-[2rem] border border-black/5 bg-white p-7 shadow-xl shadow-black/5 md:p-9">
+          <div class="mb-6 flex items-start gap-4">
+            <span class="text-6xl font-black leading-none text-secondary">“</span>
+
+            <p class="text-lg font-semibold italic leading-relaxed text-dark/80">
+              WSH was founded from a simple but powerful belief: when girls and
+              women are empowered to thrive, entire communities prosper.
+            </p>
+          </div>
+
+          <div class="space-y-5 text-base leading-relaxed text-dark/70">
+            <p>
+              Dear Friends &amp; Colleagues, welcome to WeSupportHer (WSH).
+            </p>
+
+            <p>
+              Despite significant progress in recent decades, millions of girls and
+              women around the world continue to face barriers to health,
+              leadership, representation, and opportunity. Whether it is a young
+              girl missing school because of period poverty, a woman navigating
+              menopause without adequate support, or the persistent
+              underrepresentation of women in leadership and governance, the
+              challenges remain real and demand collective action.
+            </p>
+
+            <p>
+              At WeSupportHer, we believe that gender equity is not merely a
+              women’s issue; it is a societal imperative. It is fundamental to
+              sustainable development, economic growth, social justice, and
+              stronger communities.
+            </p>
+
+            <p>
+              Through our programmes, advocacy initiatives, strategic partnerships,
+              and community engagement efforts, we are committed to advancing the
+              health, wellbeing, leadership, and inclusion of girls and women. Our
+              work is focused on creating practical solutions, amplifying voices,
+              challenging stereotypes, and opening doors for greater participation
+              and opportunity.
+            </p>
+
+            <p>
+              We are particularly passionate about promoting menstrual health and
+              hygiene, supporting women through menopause, and advancing the
+              representation of women in politics, governance, and leadership.
+              These issues are often interconnected, and meaningful progress
+              requires collaboration across sectors, generations, and communities.
+            </p>
+
+            <p>
+              Our guiding principle is simple: lasting impact is achieved when
+              people come together around a shared purpose. For this reason,
+              partnerships, collaboration, and community engagement remain central
+              to everything we do.
+            </p>
+
+            <p>
+              Whether you are a student, professional, policymaker, development
+              partner, volunteer, donor, or advocate, there is a place for you in
+              this movement. Together, we can help build a future where every girl
+              and woman is healthy, empowered, represented, and equipped to realise
+              her full potential.
+            </p>
+
+            <p>
+              Thank you for visiting our website and for your interest in our work.
+              I invite you to join us as we continue to support, celebrate, and
+              advocate for girls and women everywhere.
+            </p>
+          </div>
+
+          <div class="mt-8 border-l-4 border-secondary pl-5">
+            <p class="text-lg font-black text-dark">
+              Warm regards,
+            </p>
+            <p class="mt-2 text-2xl font-black text-secondary">
+              Toyin Bashir
+            </p>
+            <p class="text-sm font-semibold text-dark/60">
+              Founder, WeSupportHer (WSH)
+            </p>
+          </div>
+
+          <div class="mt-8 flex flex-wrap gap-4">
+            <RouterLink
+              to="/our-initiatives"
+              class="inline-flex rounded-xl bg-secondary px-6 py-4 text-sm font-bold text-white transition hover:bg-primary"
+            >
+              Explore Our Work →
+            </RouterLink>
+
+            <RouterLink
+              to="/get-involved"
+              class="inline-flex rounded-xl border border-secondary px-6 py-4 text-sm font-bold text-secondary transition hover:bg-secondary hover:text-white"
+            >
+              Join The Movement →
+            </RouterLink>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 </template>
 
 <script setup>
