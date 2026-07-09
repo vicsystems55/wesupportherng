@@ -125,7 +125,7 @@
 </template>
 
 <script setup>
-const staffImage = new URL('@/assets/images/staff1.png', import.meta.url).href
+const staffImage = new URL('@/assets/images/founder.jpeg', import.meta.url).href
 
 const founderHighlights = [
   {
