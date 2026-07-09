@@ -88,9 +88,9 @@
         >
           <div class="relative h-72 overflow-hidden bg-cream">
             <img
-              :src="staffImage"
+              :src="member.image"
               :alt="member.name"
-              class="h-full w-full object-cover object-top transition duration-700 group-hover:scale-110"
+              class="h-full w-full object-cover object-top-center transition duration-700 group-hover:scale-110"
             />
 
             <div class="absolute inset-0 bg-gradient-to-t from-dark/45 via-transparent to-transparent"></div>
@@ -127,6 +127,12 @@
 <script setup>
 const staffImage = new URL('@/assets/images/founder.jpeg', import.meta.url).href
 
+const staff1 = new URL('@/assets/images/tosin.png', import.meta.url).href
+
+const staff2 = new URL('@/assets/images/tosin.png', import.meta.url).href
+const staff3 = new URL('@/assets/images/tosin.png', import.meta.url).href
+
+
 const founderHighlights = [
   {
     value: '2024',
@@ -155,16 +161,18 @@ const team = [
     badge: 'bg-pink-600',
     line: 'bg-pink-600',
     border: 'border-pink-200',
+    image: staff1,
   },
   {
     name: 'Ms. Tosin Abdul',
-    role: 'Director / Thematic Lead',
+    role: 'Director legal , policy and advocacy',
     unit: 'Leadership',
     text: 'Supports SheRepresents and women’s participation in politics, governance, and decision-making.',
     color: 'text-primary',
     badge: 'bg-primary',
     line: 'bg-primary',
     border: 'border-primary/15',
+    image: staff2,
   },
   {
     name: 'Ms. Tolu Abdul',
@@ -175,6 +183,7 @@ const team = [
     badge: 'bg-secondary',
     line: 'bg-secondary',
     border: 'border-secondary/15',
+    image: staff3,
   }
   
 ]
