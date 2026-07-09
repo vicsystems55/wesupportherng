@@ -32,6 +32,16 @@ const routes = [
     name: "OurGallery",
     component: () => import("@/pages/OurGallery.vue"),
   },
+  {
+    path: "/volunteer-agreement",
+    name: "VolunteerAgreement",
+    component: () => import("@/pages/VolunteerAgreement.vue"),
+  },
+   {
+    path: "/volunteer-policy",
+    name: "OurGallery",
+    component: () => import("@/pages/VolunteerPolicy.vue"),
+  },
 
     {
     path: "/donate",

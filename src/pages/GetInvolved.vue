@@ -35,12 +35,12 @@
             </p>
 
             <div class="mt-10 flex flex-wrap gap-5">
-              <a
-                href="#interest-form"
+              <router-link
+                to="/volunteer-agreement"
                 class="rounded-xl bg-white px-7 py-4 font-bold text-secondary transition hover:scale-105"
               >
                 Get Started
-              </a>
+              </router-link>
 
               <a
                 href="#ways"

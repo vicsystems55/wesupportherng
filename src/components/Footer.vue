@@ -64,10 +64,21 @@
               Gallery
             </RouterLink>
           </li>
+ <li>
+            <RouterLink
+              to="/volunteer-agreement"
+              class="transition hover:text-secondary"
+            >
+              Volunteer Agreemment
+            </RouterLink>
+          </li>
 
-          <li>
-            <RouterLink to="/get-involved" class="transition hover:text-secondary">
-              Get Involved
+           <li>
+            <RouterLink
+              to="/volunteer-policy"
+              class="transition hover:text-secondary"
+            >
+              Volunteer Policy
             </RouterLink>
           </li>
 
@@ -111,14 +122,7 @@
             </RouterLink>
           </li>
 
-          <li>
-            <RouterLink
-              to="/our-initiatives"
-              class="transition hover:text-secondary"
-            >
-              WSH Advocacy Platform
-            </RouterLink>
-          </li>
+         
         </ul>
       </div>
 
