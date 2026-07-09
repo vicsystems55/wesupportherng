@@ -94,7 +94,7 @@
                     <div class="my-6 h-px bg-white/20"></div>
 
                     <h3 class="text-5xl font-black text-orange-300">
-                        100+
+                        4+
                     </h3>
 
                     <p class="mt-2 text-sm font-semibold uppercase tracking-wider text-white/80">
