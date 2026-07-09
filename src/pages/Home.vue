@@ -581,7 +581,7 @@ const impactAreas = [
     title: 'Health & Wellbeing',
     subtitle: 'RedBubble & MenoWise',
     tag: 'Health',
-    image: new URL('@/assets/images/core (1).JPG', import.meta.url).href,
+    image: new URL('@/assets/images/health.jpeg', import.meta.url).href,
     description:
       'Supporting girls and women through menstrual health education, menopause awareness, hygiene support, and wellbeing initiatives.',
     textColor: 'text-pink-600',
@@ -596,7 +596,7 @@ const impactAreas = [
     title: 'Leadership & Governance',
     subtitle: 'SheRepresents',
     tag: 'Leadership',
-    image: new URL('@/assets/images/core (2).JPG', import.meta.url).href,
+    image: new URL('@/assets/images/leadership.jpeg', import.meta.url).href,
     description:
       'Promoting women’s participation in politics, governance, leadership, and decision-making for a more inclusive society.',
     textColor: 'text-primary',
@@ -611,7 +611,7 @@ const impactAreas = [
     title: 'Advocacy & Storytelling',
     subtitle: 'WeSupportHer Platform',
     tag: 'Advocacy',
-    image: new URL('@/assets/images/core (3).JPG', import.meta.url).href,
+    image: new URL('@/assets/images/galvanized.jpg', import.meta.url).href,
     description:
       'Amplifying voices, celebrating achievements, raising awareness, and driving conversations around issues affecting women and girls.',
     textColor: 'text-accent',
