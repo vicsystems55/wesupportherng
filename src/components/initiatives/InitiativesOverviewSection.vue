@@ -96,13 +96,13 @@
                 </p>
               </div>
 
-              <RouterLink
+              <!-- <RouterLink
                 :to="item.link"
                 class="mt-8 inline-flex rounded-xl border px-6 py-3 text-sm font-bold transition hover:text-white"
                 :class="item.button"
               >
                 Learn More →
-              </RouterLink>
+              </RouterLink> -->
             </div>
           </div>
         </article>
