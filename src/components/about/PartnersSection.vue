@@ -149,6 +149,21 @@ const partners = [
     type: 'Government Partner',
     image: new URL('@/assets/images/partner-1.png', import.meta.url).href,
   },
+    {
+    name: 'Youth Space Africa Project',
+    type: 'Government Partner',
+    image: new URL('@/assets/images/partner-3.png', import.meta.url).href,
+  },
+      {
+    name: 'Women International',
+    type: 'International Partner',
+    image: new URL('@/assets/images/partner-4.png', import.meta.url).href,
+  },
+      {
+    name: 'Yar Adua Foundation',
+    type: 'Government Partner',
+    image: new URL('@/assets/images/partner-5.png', import.meta.url).href,
+  },
   {
     name: 'Flow With Pride',
     type: 'Programme Partner',
