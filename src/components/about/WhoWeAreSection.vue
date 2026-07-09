@@ -43,119 +43,149 @@
         </div>
       </div>
 
-      <!-- Message Content -->
-      <div class="reveal">
-        <span
-          class="inline-flex rounded-full bg-soft-orange px-5 py-2 text-xs font-black uppercase tracking-[0.25em] text-secondary"
-        >
-          A Message From The Founder
-        </span>
+<!-- Message Content -->
+<div class="reveal">
+  <span
+    class="inline-flex rounded-full bg-soft-orange px-5 py-2 text-xs font-black uppercase tracking-[0.25em] text-secondary"
+  >
+    A Message From The Founder
+  </span>
 
-        <h2 class="mt-6 font-display text-4xl font-black leading-tight text-dark md:text-5xl">
-          Welcome to
-          <span class="text-secondary">WeSupportHer.</span>
-        </h2>
+  <h2 class="mt-6 font-display text-4xl font-black leading-tight text-dark md:text-5xl">
+    Welcome to
+    <span class="text-secondary">WeSupportHer.</span>
+  </h2>
 
-        <div class="mt-8 rounded-[2rem] border border-black/5 bg-white p-7 shadow-xl shadow-black/5 md:p-9">
-          <div class="mb-6 flex items-start gap-4">
-            <span class="text-6xl font-black leading-none text-secondary">“</span>
+  <div class="mt-8 rounded-[2rem] border border-black/5 bg-white p-7 shadow-xl shadow-black/5 md:p-9">
+    <div class="mb-6 flex items-start gap-4">
+      <span class="text-6xl font-black leading-none text-secondary">“</span>
 
-            <p class="text-lg font-semibold italic leading-relaxed text-dark/80">
-              WSH was founded from a simple but powerful belief: when girls and
-              women are empowered to thrive, entire communities prosper.
-            </p>
-          </div>
+      <p class="text-lg font-semibold italic leading-relaxed text-dark/80">
+        WSH was founded from a simple but powerful belief: when girls and
+        women are empowered to thrive, entire communities prosper.
+      </p>
+    </div>
 
-          <div class="space-y-5 text-base leading-relaxed text-dark/70">
-            <p>
-              Dear Friends &amp; Colleagues, welcome to WeSupportHer (WSH).
-            </p>
+    <div class="space-y-5 text-base leading-relaxed text-dark/70">
+      <p>
+        Dear Friends &amp; Colleagues, welcome to WeSupportHer (WSH).
+      </p>
 
-            <p>
-              Despite significant progress in recent decades, millions of girls and
-              women around the world continue to face barriers to health,
-              leadership, representation, and opportunity. Whether it is a young
-              girl missing school because of period poverty, a woman navigating
-              menopause without adequate support, or the persistent
-              underrepresentation of women in leadership and governance, the
-              challenges remain real and demand collective action.
-            </p>
+      <p>
+        Despite significant progress in recent decades, millions of girls and
+        women around the world continue to face barriers to health,
+        leadership, representation, and opportunity.
+      </p>
 
-            <p>
-              At WeSupportHer, we believe that gender equity is not merely a
-              women’s issue; it is a societal imperative. It is fundamental to
-              sustainable development, economic growth, social justice, and
-              stronger communities.
-            </p>
+      <p>
+        At WeSupportHer, we believe that gender equity is not merely a
+        women’s issue; it is a societal imperative. It is fundamental to
+        sustainable development, economic growth, social justice, and stronger
+        communities.
+      </p>
+    </div>
 
-            <p>
-              Through our programmes, advocacy initiatives, strategic partnerships,
-              and community engagement efforts, we are committed to advancing the
-              health, wellbeing, leadership, and inclusion of girls and women. Our
-              work is focused on creating practical solutions, amplifying voices,
-              challenging stereotypes, and opening doors for greater participation
-              and opportunity.
-            </p>
+    <Transition
+      enter-active-class="transition-all duration-500 ease-out"
+      leave-active-class="transition-all duration-300 ease-in"
+      enter-from-class="opacity-0 max-h-0"
+      enter-to-class="opacity-100 max-h-[1200px]"
+      leave-from-class="opacity-100 max-h-[1200px]"
+      leave-to-class="opacity-0 max-h-0"
+    >
+      <div
+        v-if="showFullMessage"
+        class="mt-5 space-y-5 overflow-hidden text-base leading-relaxed text-dark/70"
+      >
+        <p>
+          Through our programmes, advocacy initiatives, strategic partnerships,
+          and community engagement efforts, we are committed to advancing the
+          health, wellbeing, leadership, and inclusion of girls and women.
+        </p>
 
-            <p>
-              We are particularly passionate about promoting menstrual health and
-              hygiene, supporting women through menopause, and advancing the
-              representation of women in politics, governance, and leadership.
-              These issues are often interconnected, and meaningful progress
-              requires collaboration across sectors, generations, and communities.
-            </p>
+        <p>
+          We are particularly passionate about promoting menstrual health and
+          hygiene, supporting women through menopause, and advancing the
+          representation of women in politics, governance, and leadership.
+        </p>
 
-            <p>
-              Our guiding principle is simple: lasting impact is achieved when
-              people come together around a shared purpose. For this reason,
-              partnerships, collaboration, and community engagement remain central
-              to everything we do.
-            </p>
+        <p>
+          Our guiding principle is simple: lasting impact is achieved when
+          people come together around a shared purpose. Partnerships,
+          collaboration, and community engagement remain central to everything
+          we do.
+        </p>
 
-            <p>
-              Whether you are a student, professional, policymaker, development
-              partner, volunteer, donor, or advocate, there is a place for you in
-              this movement. Together, we can help build a future where every girl
-              and woman is healthy, empowered, represented, and equipped to realise
-              her full potential.
-            </p>
+        <p>
+          Whether you are a student, professional, policymaker, development
+          partner, volunteer, donor, or advocate, there is a place for you in
+          this movement.
+        </p>
 
-            <p>
-              Thank you for visiting our website and for your interest in our work.
-              I invite you to join us as we continue to support, celebrate, and
-              advocate for girls and women everywhere.
-            </p>
-          </div>
-
-          <div class="mt-8 border-l-4 border-secondary pl-5">
-            <p class="text-lg font-black text-dark">
-              Warm regards,
-            </p>
-            <p class="mt-2 text-2xl font-black text-secondary">
-              Toyin Bashir
-            </p>
-            <p class="text-sm font-semibold text-dark/60">
-              Founder, WeSupportHer (WSH)
-            </p>
-          </div>
-
-          <div class="mt-8 flex flex-wrap gap-4">
-            <RouterLink
-              to="/our-initiatives"
-              class="inline-flex rounded-xl bg-secondary px-6 py-4 text-sm font-bold text-white transition hover:bg-primary"
-            >
-              Explore Our Work →
-            </RouterLink>
-
-            <RouterLink
-              to="/get-involved"
-              class="inline-flex rounded-xl border border-secondary px-6 py-4 text-sm font-bold text-secondary transition hover:bg-secondary hover:text-white"
-            >
-              Join The Movement →
-            </RouterLink>
-          </div>
-        </div>
+        <p>
+          Thank you for visiting our website and for your interest in our work.
+          I invite you to join us as we continue to support, celebrate, and
+          advocate for girls and women everywhere.
+        </p>
       </div>
+    </Transition>
+
+    <div class="mt-8">
+      <button
+        type="button"
+        @click="showFullMessage = !showFullMessage"
+        class="inline-flex items-center gap-2 rounded-full border border-secondary px-6 py-3 text-sm font-bold text-secondary transition hover:bg-secondary hover:text-white"
+      >
+        {{ showFullMessage ? 'Show Less' : 'Read Full Message' }}
+
+        <svg
+          class="h-4 w-4 transition-transform duration-300"
+          :class="{ 'rotate-180': showFullMessage }"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          viewBox="0 0 24 24"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M19 9l-7 7-7-7"
+          />
+        </svg>
+      </button>
+    </div>
+
+    <div class="mt-8 border-l-4 border-secondary pl-5">
+      <p class="text-lg font-black text-dark">
+        Warm regards,
+      </p>
+
+      <p class="mt-2 text-2xl font-black text-secondary">
+        Toyin Bashir
+      </p>
+
+      <p class="text-sm font-semibold text-dark/60">
+        Founder, WeSupportHer (WSH)
+      </p>
+    </div>
+
+    <div class="mt-8 flex flex-wrap gap-4">
+      <RouterLink
+        to="/our-initiatives"
+        class="inline-flex rounded-xl bg-secondary px-6 py-4 text-sm font-bold text-white transition hover:bg-primary"
+      >
+        Explore Our Work →
+      </RouterLink>
+
+      <RouterLink
+        to="/get-involved"
+        class="inline-flex rounded-xl border border-secondary px-6 py-4 text-sm font-bold text-secondary transition hover:bg-secondary hover:text-white"
+      >
+        Join The Movement →
+      </RouterLink>
+    </div>
+  </div>
+</div>
     </div>
   </div>
 </section>
@@ -167,6 +197,11 @@ import {
     Handshake,
     Globe,
 } from 'lucide-vue-next'
+
+
+import { ref } from 'vue'
+
+const showFullMessage = ref(false)
 
 const highlights = [
     {
