@@ -97,12 +97,24 @@
 const core1 = new URL('@/assets/images/core (1).JPG', import.meta.url).href
 const core2 = new URL('@/assets/images/core (2).JPG', import.meta.url).href
 const core3 = new URL('@/assets/images/core (3).JPG', import.meta.url).href
+const empower = new URL('@/assets/images/empower.jpg', import.meta.url).href
+const motivate = new URL('@/assets/images/motivate.jpg', import.meta.url).href
+const encourage = new URL('@/assets/images/encourage.jpg', import.meta.url).href
+const awareness = new URL('@/assets/images/awareness.jpg', import.meta.url).href
+const galvanized = new URL('@/assets/images/galvanized.jpg', import.meta.url).href
+const voices = new URL('@/assets/images/voices.jpg', import.meta.url).href
+
+
+
+
+
+
 
 const values = [
   {
     number: '01',
     title: 'Empower',
-    image: core1,
+    image: empower,
     text: 'We equip women and girls with knowledge, resources, and opportunities to reach their full potential and lead with confidence.',
     textColor: 'text-primary',
     badgeBg: 'bg-primary',
@@ -112,7 +124,7 @@ const values = [
   {
     number: '02',
     title: 'Motivate',
-    image: core2,
+    image: motivate,
     text: 'We inspire women and girls to believe in their abilities, pursue their goals, and strive for excellence.',
     textColor: 'text-secondary',
     badgeBg: 'bg-secondary',
@@ -122,7 +134,7 @@ const values = [
   {
     number: '03',
     title: 'Encourage',
-    image: core3,
+    image: encourage,
     text: 'We promote support, mentorship, and collaboration so women can uplift one another and grow together.',
     textColor: 'text-accent',
     badgeBg: 'bg-accent',
@@ -132,7 +144,7 @@ const values = [
   {
     number: '04',
     title: 'Raise Awareness',
-    image: core2,
+    image: awareness,
     text: 'We highlight issues affecting women and girls, challenge harmful norms, and promote informed dialogue for gender equality.',
     textColor: 'text-primary',
     badgeBg: 'bg-primary',
@@ -142,7 +154,7 @@ const values = [
   {
     number: '05',
     title: 'Galvanize Action',
-    image: core1,
+    image: galvanized,
     text: 'We mobilize communities, partners, and stakeholders to take bold action that advances women’s rights and inclusion.',
     textColor: 'text-secondary',
     badgeBg: 'bg-secondary',
@@ -152,7 +164,7 @@ const values = [
   {
     number: '06',
     title: 'Elevate Voices',
-    image: core3,
+    image: voices,
     text: 'We create safe platforms for women and girls to speak, lead, and influence decisions that impact their lives.',
     textColor: 'text-accent',
     badgeBg: 'bg-accent',
