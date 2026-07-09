@@ -53,7 +53,7 @@
 
   <h2 class="mt-6 font-display text-4xl font-black leading-tight text-dark md:text-5xl">
     Welcome to
-    <span class="text-secondary">WeSupportHer.</span>
+    <span class="text-secondary">WeSupportHer</span>
   </h2>
 
   <div class="mt-8 rounded-[2rem] border border-black/5 bg-white p-7 shadow-xl shadow-black/5 md:p-9">

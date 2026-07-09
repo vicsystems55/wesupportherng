@@ -42,12 +42,12 @@
                 Get Started
               </router-link>
 
-              <a
-                href="#ways"
+              <router-link
+                to="/voluneteer-policy"
                 class="rounded-xl border border-white/40 bg-white/10 px-7 py-4 font-bold text-white backdrop-blur-sm transition hover:bg-white hover:text-dark"
               >
-                Ways To Help
-              </a>
+                Our Policies
+            </router-link>
             </div>
           </div>
         </div>
@@ -126,13 +126,13 @@
                 {{ item.text }}
               </p>
 
-              <a
-                href="#interest-form"
+              <router-link
+                to="/volunteer-agreement"
                 class="mt-6 inline-flex rounded-xl border px-5 py-3 text-sm font-bold transition hover:text-white"
                 :class="item.button"
               >
                 {{ item.cta }} →
-              </a>
+              </router-link>
             </article>
           </div>
 
