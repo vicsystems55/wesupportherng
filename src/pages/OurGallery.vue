@@ -1,6 +1,6 @@
 <template>
   <DefaultLayout>
-    <GalleryHeroSection />
+    <!-- <GalleryHeroSection /> -->
     <GallerySliderSection />
     <GalleryTimelineSection />
     <MasonryGallerySection />
@@ -22,6 +22,6 @@ useSeoMeta({
   ogTitle: 'Gallery | WeSupportHer',
   ogDescription:
     'See WSH in action through photos from our outreach, advocacy and community programmes.',
-  ogImage: '/seo/gallery-thumbnail.jpg',
+  // ogImage: '/seo/gallery-thumbnail.jpg',
 })
 </script>

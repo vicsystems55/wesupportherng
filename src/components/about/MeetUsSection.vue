@@ -127,10 +127,10 @@
 <script setup>
 const staffImage = new URL('@/assets/images/founder.jpeg', import.meta.url).href
 
-const staff1 = new URL('@/assets/images/tosin.png', import.meta.url).href
+const staff1 = new URL('@/assets/images/moji.png', import.meta.url).href
 
 const staff2 = new URL('@/assets/images/tosin.png', import.meta.url).href
-const staff3 = new URL('@/assets/images/tosin.png', import.meta.url).href
+const staff3 = new URL('@/assets/images/tolu.png', import.meta.url).href
 
 
 const founderHighlights = [

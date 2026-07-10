@@ -6,7 +6,8 @@
     <div class="relative z-10 mx-auto max-w-7xl px-5">
       <div class="mb-10 flex flex-col gap-5 md:flex-row md:items-end md:justify-between">
         <div class="max-w-2xl reveal">
-          <span class="inline-flex rounded-full bg-soft-orange px-5 py-2 text-xs font-black uppercase tracking-[0.25em] text-secondary">
+          <span
+            class="inline-flex rounded-full bg-soft-orange px-5 py-2 text-xs font-black uppercase tracking-[0.25em] text-secondary">
             Featured Moments
           </span>
 
@@ -21,19 +22,15 @@
         </div>
 
         <div class="reveal flex gap-3">
-          <button
-            type="button"
+          <button type="button"
             class="flex h-12 w-12 items-center justify-center rounded-full bg-white text-secondary shadow-md transition hover:bg-secondary hover:text-white"
-            @click="prevSlide"
-          >
+            @click="prevSlide">
             ←
           </button>
 
-          <button
-            type="button"
+          <button type="button"
             class="flex h-12 w-12 items-center justify-center rounded-full bg-white text-secondary shadow-md transition hover:bg-secondary hover:text-white"
-            @click="nextSlide"
-          >
+            @click="nextSlide">
             →
           </button>
         </div>
@@ -42,11 +39,8 @@
       <div class="reveal overflow-hidden rounded-[2rem] bg-white shadow-2xl shadow-black/10">
         <div class="grid lg:grid-cols-[1.25fr_0.75fr]">
           <div class="relative h-[520px] overflow-hidden">
-            <img
-  :src="activeSlide.image"
-  :alt="activeSlide.title"
-  class="h-full w-full object-cover object-center transition duration-700"
-/>
+            <img :src="activeSlide.image" :alt="activeSlide.title"
+              class="h-full w-full object-cover object-center transition duration-700" />
 
             <div class="absolute inset-0 bg-gradient-to-t from-dark/70 via-transparent to-transparent"></div>
 
@@ -83,26 +77,17 @@
               </div>
 
               <div class="h-2 overflow-hidden rounded-full bg-cream">
-                <div
-                  class="h-full rounded-full bg-secondary transition-all duration-500"
-                  :style="{ width: progressWidth }"
-                ></div>
+                <div class="h-full rounded-full bg-secondary transition-all duration-500"
+                  :style="{ width: progressWidth }"></div>
               </div>
 
               <div class="mt-6 grid grid-cols-4 gap-3">
-                <button
-                  v-for="(slide, index) in slides"
-                  :key="slide.title"
-                  type="button"
+                <button v-for="(slide, index) in slides" :key="slide.title" type="button"
                   class="group h-20 overflow-hidden rounded-xl border-2 transition"
                   :class="index === currentIndex ? 'border-secondary' : 'border-transparent'"
-                  @click="currentIndex = index"
-                >
-                  <img
-                    :src="slide.image"
-                    :alt="slide.title"
-                    class="h-full w-full object-cover transition duration-500 group-hover:scale-110"
-                  />
+                  @click="currentIndex = index">
+                  <img :src="slide.image" :alt="slide.title"
+                    class="h-full w-full object-cover transition duration-500 group-hover:scale-110" />
                 </button>
               </div>
             </div>

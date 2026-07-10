@@ -39,7 +39,7 @@ const routes = [
   },
    {
     path: "/volunteer-policy",
-    name: "OurGallery",
+    name: "VolunteerPolicy",
     component: () => import("@/pages/VolunteerPolicy.vue"),
   },
 
