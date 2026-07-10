@@ -154,7 +154,7 @@ const founderHighlights = [
 const team = [
   {
     name: 'Dr. Mutiat Mojibola Salawu',
-    role: 'Director / Thematic Lead',
+    role: 'Director Health & Community',
     unit: 'Health',
     text: 'Leads RedBubble and MenoWise thematic areas focused on women’s health and wellbeing.',
     color: 'text-pink-600',
@@ -165,7 +165,7 @@ const team = [
   },
   {
     name: 'Ms. Tosin Abdul',
-    role: 'Director legal , policy and advocacy',
+    role: 'Director Legal , Policy and Advocacy',
     unit: 'Leadership',
     text: 'Supports SheRepresents and women’s participation in politics, governance, and decision-making.',
     color: 'text-primary',
@@ -176,7 +176,7 @@ const team = [
   },
   {
     name: 'Ms. Tolu Abdul',
-    role: 'Director / Co-Thematic Lead',
+    role: 'Director Programmes and Strategic Communications',
     unit: 'Advocacy',
     text: 'Supports RedBubble and SheRepresents through advocacy, mobilisation, and community action.',
     color: 'text-secondary',
