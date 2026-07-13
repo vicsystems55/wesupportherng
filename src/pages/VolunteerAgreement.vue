@@ -390,51 +390,6 @@
             </div>
           </div>
 
-          <!-- Official Use -->
-          <div class="mt-10 rounded-[2rem] border border-dashed border-primary/20 bg-soft-purple p-6">
-            <p class="text-xs font-black uppercase tracking-[0.2em] text-primary">
-              For Official Use Only
-            </p>
-
-            <div class="mt-5 grid gap-5 md:grid-cols-4">
-              <div>
-                <label class="mb-2 block text-sm font-bold text-dark">Approved By</label>
-                <input 
-                  v-model="form.approvedBy"
-                  type="text" 
-                  placeholder="Name" 
-                  class="w-full rounded-xl border border-black/10 bg-cream px-4 py-3 text-sm text-dark outline-none transition focus:border-secondary focus:bg-white"
-                />
-              </div>
-              <div>
-                <label class="mb-2 block text-sm font-bold text-dark">Position</label>
-                <input 
-                  v-model="form.approverPosition"
-                  type="text" 
-                  placeholder="Position" 
-                  class="w-full rounded-xl border border-black/10 bg-cream px-4 py-3 text-sm text-dark outline-none transition focus:border-secondary focus:bg-white"
-                />
-              </div>
-              <div>
-                <label class="mb-2 block text-sm font-bold text-dark">Signature</label>
-                <input 
-                  v-model="form.approverSignature"
-                  type="text" 
-                  placeholder="Signature" 
-                  class="w-full rounded-xl border border-black/10 bg-cream px-4 py-3 text-sm text-dark outline-none transition focus:border-secondary focus:bg-white"
-                />
-              </div>
-              <div>
-                <label class="mb-2 block text-sm font-bold text-dark">Date</label>
-                <input 
-                  v-model="form.approverDate"
-                  type="date" 
-                  class="w-full rounded-xl border border-black/10 bg-cream px-4 py-3 text-sm text-dark outline-none transition focus:border-secondary focus:bg-white"
-                />
-              </div>
-            </div>
-          </div>
-
           <!-- Submit -->
           <div class="mt-10 flex flex-col gap-4 border-t border-black/10 pt-8 md:flex-row md:items-center md:justify-between">
             <p class="max-w-xl text-sm leading-relaxed text-dark/60">
@@ -501,12 +456,6 @@ const form = reactive({
   volunteerName: '',
   signature: '',
   declarationDate: '',
-  
-  // Official Use
-  approvedBy: '',
-  approverPosition: '',
-  approverSignature: '',
-  approverDate: '',
 })
 
 // Options arrays
