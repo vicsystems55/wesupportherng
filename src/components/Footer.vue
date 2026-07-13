@@ -166,7 +166,7 @@
             rel="noopener noreferrer"
             class="font-bold text-white transition hover:text-secondary"
           >
-            VICSYSTEMS TECHNOLOGIES LTD.
+            Vicsystems Technologies Ltd.
           </a>
         </p>
       </div>

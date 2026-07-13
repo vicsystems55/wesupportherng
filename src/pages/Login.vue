@@ -1,8 +1,8 @@
 <template>
-  <main class="min-h-screen bg-cream">
-    <div class="grid min-h-screen lg:grid-cols-[1.05fr_0.95fr]">
+  <main class="min-h-screen w-full max-w-full overflow-x-hidden bg-cream">
+    <div class="grid min-h-screen w-full min-w-0 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)]">
       <!-- Brand / Image Panel -->
-      <div class="relative hidden overflow-hidden bg-primary lg:block">
+      <div class="relative hidden min-w-0 overflow-hidden bg-primary lg:block">
         <img
           src="@/assets/images/about-hero.jpg"
           alt="WeSupportHer"
@@ -72,7 +72,7 @@
       </div>
 
       <!-- Login Panel -->
-      <div class="relative flex min-h-screen items-center justify-center px-5 py-12 sm:px-8">
+      <div class="relative flex min-h-screen min-w-0 items-center justify-center overflow-hidden px-5 py-12 sm:px-8">
         <div
           class="absolute -right-24 top-10 h-72 w-72 rounded-full bg-soft-purple blur-3xl"
         />
@@ -81,7 +81,7 @@
           class="absolute -left-24 bottom-10 h-72 w-72 rounded-full bg-soft-orange blur-3xl"
         />
 
-        <div class="relative z-10 w-full max-w-md">
+        <div class="relative z-10 w-full min-w-0 max-w-md">
           <!-- Mobile Logo -->
           <RouterLink
             to="/"
@@ -281,6 +281,7 @@
 import { reactive, ref } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { useSeoMeta } from '@unhead/vue'
+import { login } from '@/services/authService'
 import {
   ArrowLeft,
   CircleAlert,
@@ -318,9 +319,6 @@ useSeoMeta({
   robots: 'noindex, nofollow',
 })
 
-const API_BASE_URL =
-  import.meta.env.VITE_API_BASE_URL || 'http://localhost:5000'
-
 const validateForm = () => {
   errors.email = ''
   errors.password = ''
@@ -356,81 +354,11 @@ const handleLogin = async () => {
   errorMessage.value = ''
 
   try {
-    const response = await fetch(`${API_BASE_URL}/api/auth/login`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        Accept: 'application/json',
-      },
-      body: JSON.stringify({
-        email: form.email,
-        password: form.password,
-      }),
+    await login({
+      email: form.email.trim(),
+      password: form.password,
+      remember: form.remember,
     })
-
-    const data = await response.json().catch(() => null)
-
-    if (!response.ok) {
-      throw new Error(
-        data?.message ||
-          data?.error ||
-          'Unable to sign in. Please check your credentials.',
-      )
-    }
-
-    /*
-     * This supports common API response structures:
-     *
-     * {
-     *   token: "...",
-     *   user: {...}
-     * }
-     *
-     * or:
-     *
-     * {
-     *   data: {
-     *     token: "...",
-     *     user: {...}
-     *   }
-     * }
-     *
-     * or:
-     *
-     * {
-     *   accessToken: "...",
-     *   admin: {...}
-     * }
-     */
-
-    const token =
-      data?.token ||
-      data?.accessToken ||
-      data?.data?.token ||
-      data?.data?.accessToken
-
-    const admin =
-      data?.user ||
-      data?.admin ||
-      data?.data?.user ||
-      data?.data?.admin ||
-      null
-
-    const storage = form.remember ? localStorage : sessionStorage
-
-    if (token) {
-      storage.setItem('wsh_admin_token', token)
-
-      const otherStorage = form.remember ? sessionStorage : localStorage
-      otherStorage.removeItem('wsh_admin_token')
-    }
-
-    if (admin) {
-      storage.setItem('wsh_admin_user', JSON.stringify(admin))
-
-      const otherStorage = form.remember ? sessionStorage : localStorage
-      otherStorage.removeItem('wsh_admin_user')
-    }
 
     const redirectPath =
       typeof route.query.redirect === 'string' &&

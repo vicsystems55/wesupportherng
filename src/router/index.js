@@ -1,4 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
+import { isAuthenticated } from '@/services/authStorage'
 
 const routes = [
   /* =========================
@@ -298,21 +299,10 @@ router.afterEach((to) => {
   document.title = pageTitle
 })
 
-/* =========================
-   AUTH GUARD PLACEHOLDER
-========================== */
-
-const getAdminToken = () => {
-  return (
-    localStorage.getItem('wsh_admin_token') ||
-    sessionStorage.getItem('wsh_admin_token')
-  )
-}
-
 router.beforeEach((to) => {
-  const token = getAdminToken()
+  const authenticated = isAuthenticated()
 
-  if (to.meta.requiresAuth && !token) {
+  if (to.meta.requiresAuth && !authenticated) {
     return {
       name: 'AdminLogin',
       query: {
@@ -321,31 +311,11 @@ router.beforeEach((to) => {
     }
   }
 
-  if (to.meta.guestOnly && token) {
+  if (to.meta.guestOnly && authenticated) {
     return {
       name: 'AdminDashboard',
     }
   }
-
-
-
-  /*
-   * Replace this later with Pinia or your API authentication state.
-   *
-   * Example:
-   *
-   * const authStore = useAuthStore()
-   *
-   * if (!authStore.isAuthenticated) {
-   *   return {
-   *     name: 'Login',
-   *     query: {
-   *       redirect: to.fullPath,
-   *     },
-   *   }
-   * }
-   */
-
   return true
 })
 

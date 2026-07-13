@@ -367,6 +367,7 @@ import {
   watch,
 } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
+import { logout as logoutUser } from '@/services/authService'
 
 import {
   LayoutDashboard,
@@ -522,35 +523,11 @@ const closeMobileSidebar = () => {
 const logout = async () => {
   profileMenuOpen.value = false
 
-  const token =
-    localStorage.getItem('wsh_admin_token') ||
-    sessionStorage.getItem('wsh_admin_token')
-
   try {
-    await fetch(
-      `${import.meta.env.VITE_API_BASE_URL}/api/auth/logout`,
-      {
-        method: 'POST',
-        headers: {
-          Accept: 'application/json',
-          ...(token
-            ? {
-                Authorization: `Bearer ${token}`,
-              }
-            : {}),
-        },
-        credentials: 'include',
-      },
-    )
+    await logoutUser()
   } catch (error) {
     console.error('Logout request failed:', error)
   } finally {
-    localStorage.removeItem('wsh_admin_token')
-    localStorage.removeItem('wsh_admin_user')
-
-    sessionStorage.removeItem('wsh_admin_token')
-    sessionStorage.removeItem('wsh_admin_user')
-
     await router.replace('/login')
   }
 }
