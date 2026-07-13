@@ -271,6 +271,18 @@
           <p class="mt-6 text-center text-xs leading-relaxed text-dark/40">
             This area is restricted to authorised WSH administrators.
           </p>
+
+          <p class="mt-2 text-center text-xs leading-relaxed text-dark/40">
+            Developed by
+            <a
+              href="https://vicsystems.us"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="font-bold text-dark/60 transition hover:text-secondary"
+            >
+              Vicsystems Technologies Ltd.
+            </a>
+          </p>
         </div>
       </div>
     </div>

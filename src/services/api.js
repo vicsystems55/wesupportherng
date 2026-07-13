@@ -60,7 +60,7 @@ export const apiRequest = async (
 
   try {
     response = await fetch(buildUrl(path), {
-      credentials: 'include',
+     
       ...options,
       headers: requestHeaders,
       body: body != null && !isFormData ? JSON.stringify(body) : body,

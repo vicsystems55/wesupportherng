@@ -29,9 +29,71 @@
         </div>
 
         <!-- Form Card -->
-        <form class="reveal mt-16 rounded-[2rem] border border-black/5 bg-white p-6 shadow-2xl shadow-black/10 md:p-10" @submit.prevent="handleSubmit">
+        <div
+          v-if="isSubmitted"
+          class="reveal mx-auto mt-16 max-w-3xl rounded-[2rem] border border-accent/20 bg-white p-8 text-center shadow-2xl shadow-black/10 md:p-12"
+          role="status"
+        >
+          <div class="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-soft-green text-3xl text-accent">✓</div>
+          <h2 class="mt-6 font-display text-3xl font-black text-dark">Application submitted</h2>
+          <p class="mt-4 leading-relaxed text-dark/65">
+            Thank you for volunteering with WeSupportHer. Our team will review
+            your application and contact you about the next steps.
+          </p>
+        </div>
+
+        <form
+          v-else
+          ref="formCard"
+          class="reveal mt-16 rounded-[2rem] border border-black/5 bg-white p-6 shadow-2xl shadow-black/10 md:p-10"
+          novalidate
+          @submit.prevent="handleSubmit"
+        >
+          <!-- Progress -->
+          <div class="mb-10 border-b border-black/10 pb-8">
+            <div class="mb-5 flex items-center justify-between gap-4">
+              <p class="text-xs font-black uppercase tracking-[0.2em] text-secondary">
+                Step {{ currentStep + 1 }} of {{ steps.length }}
+              </p>
+              <p class="text-sm font-bold text-dark/55">
+                {{ steps[currentStep].title }}
+              </p>
+            </div>
+
+            <div class="h-2 overflow-hidden rounded-full bg-black/5" aria-hidden="true">
+              <div
+                class="h-full rounded-full bg-secondary transition-all duration-300"
+                :style="{ width: `${stepProgress}%` }"
+              />
+            </div>
+
+            <ol class="mt-5 grid grid-cols-2 gap-3 sm:grid-cols-5" aria-label="Application progress">
+              <li v-for="(step, index) in steps" :key="step.title">
+                <button
+                  type="button"
+                  class="flex w-full items-center gap-2 rounded-xl p-2 text-left text-xs font-bold transition"
+                  :class="index === currentStep
+                    ? 'bg-soft-orange text-secondary'
+                    : index < currentStep
+                      ? 'text-accent hover:bg-soft-green'
+                      : 'cursor-default text-dark/35'"
+                  :disabled="index >= currentStep || isSubmitting"
+                  :aria-current="index === currentStep ? 'step' : undefined"
+                  @click="goToStep(index)"
+                >
+                  <span
+                    class="flex h-7 w-7 shrink-0 items-center justify-center rounded-full border"
+                    :class="index <= currentStep ? 'border-current' : 'border-black/10'"
+                  >
+                    {{ index < currentStep ? '✓' : index + 1 }}
+                  </span>
+                  <span class="hidden xl:inline">{{ step.shortTitle }}</span>
+                </button>
+              </li>
+            </ol>
+          </div>
           <!-- Volunteer Information -->
-          <div class="mt-10 first:mt-0">
+          <div v-show="currentStep === 0">
             <div class="mb-6 flex items-center gap-4">
               <div class="flex h-12 w-12 items-center justify-center rounded-2xl bg-secondary text-sm font-black text-white">01</div>
               <h2 class="font-display text-2xl font-black text-dark md:text-3xl">Volunteer Information</h2>
@@ -153,7 +215,7 @@
           </div>
 
           <!-- Role Details -->
-          <div class="mt-10">
+          <div v-show="currentStep === 1">
             <div class="mb-6 flex items-center gap-4">
               <div class="flex h-12 w-12 items-center justify-center rounded-2xl bg-secondary text-sm font-black text-white">02</div>
               <h2 class="font-display text-2xl font-black text-dark md:text-3xl">Volunteer Role Details</h2>
@@ -257,7 +319,7 @@
           </div>
 
           <!-- Agreement -->
-          <div class="mt-10">
+          <div v-show="currentStep === 2">
             <div class="mb-6 flex items-center gap-4">
               <div class="flex h-12 w-12 items-center justify-center rounded-2xl bg-secondary text-sm font-black text-white">03</div>
               <h2 class="font-display text-2xl font-black text-dark md:text-3xl">Volunteer Agreement</h2>
@@ -290,7 +352,7 @@
           </div>
 
           <!-- Media Consent -->
-          <div class="mt-10">
+          <div v-show="currentStep === 3">
             <div class="mb-6 flex items-center gap-4">
               <div class="flex h-12 w-12 items-center justify-center rounded-2xl bg-secondary text-sm font-black text-white">04</div>
               <h2 class="font-display text-2xl font-black text-dark md:text-3xl">Photo and Media Consent</h2>
@@ -327,7 +389,7 @@
           </div>
 
           <!-- Declaration -->
-          <div class="mt-10">
+          <div v-show="currentStep === 4">
             <div class="mb-6 flex items-center gap-4">
               <div class="flex h-12 w-12 items-center justify-center rounded-2xl bg-secondary text-sm font-black text-white">05</div>
               <h2 class="font-display text-2xl font-black text-dark md:text-3xl">Declaration</h2>
@@ -390,19 +452,46 @@
             </div>
           </div>
 
-          <!-- Submit -->
-          <div class="mt-10 flex flex-col gap-4 border-t border-black/10 pt-8 md:flex-row md:items-center md:justify-between">
-            <p class="max-w-xl text-sm leading-relaxed text-dark/60">
-              By submitting this form, the volunteer confirms acceptance of the
-              WSH volunteer agreement terms.
-            </p>
-
-            <button
-              type="submit"
-              class="rounded-xl bg-secondary px-8 py-4 text-sm font-black text-white transition hover:bg-primary"
+          <!-- Navigation -->
+          <div class="mt-10 border-t border-black/10 pt-8">
+            <div
+              v-if="stepError"
+              class="mb-5 rounded-2xl border border-red-200 bg-red-50 p-4 text-sm font-semibold text-red-700"
+              role="alert"
             >
-              Submit Agreement →
-            </button>
+              {{ stepError }}
+            </div>
+
+            <div class="flex flex-col-reverse gap-3 sm:flex-row sm:items-center sm:justify-between">
+              <button
+                v-if="currentStep > 0"
+                type="button"
+                class="rounded-xl border border-black/10 px-7 py-4 text-sm font-black text-dark transition hover:border-primary/30 hover:text-primary disabled:opacity-50"
+                :disabled="isSubmitting"
+                @click="goBack"
+              >
+                ← Previous
+              </button>
+              <span v-else />
+
+              <button
+                v-if="currentStep < steps.length - 1"
+                type="button"
+                class="rounded-xl bg-secondary px-8 py-4 text-sm font-black text-white transition hover:bg-primary"
+                @click="goNext"
+              >
+                Next step →
+              </button>
+
+              <button
+                v-else
+                type="submit"
+                class="rounded-xl bg-secondary px-8 py-4 text-sm font-black text-white transition hover:bg-primary disabled:cursor-not-allowed disabled:opacity-60"
+                :disabled="isSubmitting"
+              >
+                {{ isSubmitting ? 'Submitting...' : 'Submit Agreement →' }}
+              </button>
+            </div>
           </div>
         </form>
       </div>
@@ -411,9 +500,10 @@
 </template>
 
 <script setup>
-import { ref, reactive } from 'vue'
+import { computed, nextTick, reactive, ref } from 'vue'
 import DefaultLayout from '@/layouts/DefaultLayout.vue'
 import { useSeoMeta } from '@unhead/vue'
+import { submitVolunteerApplication } from '@/services/publicFormsService'
 
 useSeoMeta({
   title: 'Volunteer Agreement | WeSupportHer',
@@ -458,6 +548,24 @@ const form = reactive({
   declarationDate: '',
 })
 
+const formCard = ref(null)
+const currentStep = ref(0)
+const stepError = ref('')
+const isSubmitting = ref(false)
+const isSubmitted = ref(false)
+
+const steps = [
+  { title: 'Volunteer information', shortTitle: 'Information' },
+  { title: 'Role details', shortTitle: 'Role' },
+  { title: 'Agreement', shortTitle: 'Agreement' },
+  { title: 'Media consent', shortTitle: 'Consent' },
+  { title: 'Declaration', shortTitle: 'Declaration' },
+]
+
+const stepProgress = computed(() =>
+  ((currentStep.value + 1) / steps.length) * 100,
+)
+
 // Options arrays
 const departments = [
   'Communications',
@@ -492,10 +600,133 @@ const agreementItems = [
   'I agree to obtain approval before sharing sensitive information, stories, photographs, or organisational content.',
 ]
 
-// Submit handler
-const handleSubmit = () => {
-  console.log('Form submitted:', form)
-  // Add your form submission logic here
-  alert('Form submitted successfully!')
+const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+
+const validateCurrentStep = () => {
+  const validators = [
+    () => {
+      if (!form.fullName.trim() || !form.email.trim() || !form.phone.trim()) {
+        return 'Full name, email address, and phone number are required.'
+      }
+
+      if (!emailPattern.test(form.email)) {
+        return 'Enter a valid email address.'
+      }
+
+      return ''
+    },
+    () => {
+      if (!form.position.trim()) {
+        return 'Enter your preferred volunteer position or role.'
+      }
+
+      if (!form.department.length || !form.duration || !form.arrangement) {
+        return 'Select at least one department, a duration, and a work arrangement.'
+      }
+
+      return ''
+    },
+    () =>
+      form.agreements.length === agreementItems.length
+        ? ''
+        : 'Please review and accept every volunteer agreement item.',
+    () =>
+      form.mediaConsent
+        ? ''
+        : 'Select whether or not you consent to photo and media use.',
+    () => {
+      if (!form.declaration1 || !form.declaration2 || !form.declaration3) {
+        return 'All declarations must be confirmed before submission.'
+      }
+
+      if (
+        !form.volunteerName.trim() ||
+        !form.signature.trim() ||
+        !form.declarationDate
+      ) {
+        return 'Volunteer name, signature, and declaration date are required.'
+      }
+
+      return ''
+    },
+  ]
+
+  stepError.value = validators[currentStep.value]()
+  return !stepError.value
+}
+
+const scrollToForm = async () => {
+  await nextTick()
+  formCard.value?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+}
+
+const goNext = () => {
+  if (!validateCurrentStep()) return
+
+  currentStep.value += 1
+  stepError.value = ''
+  scrollToForm()
+}
+
+const goBack = () => {
+  currentStep.value -= 1
+  stepError.value = ''
+  scrollToForm()
+}
+
+const goToStep = (step) => {
+  if (step >= currentStep.value) return
+
+  currentStep.value = step
+  stepError.value = ''
+  scrollToForm()
+}
+
+const optionalValue = (value) => value?.trim() || null
+const optionalDate = (value) =>
+  value ? new Date(`${value}T00:00:00.000Z`).toISOString() : null
+
+const buildApplicationPayload = () => ({
+  fullName: form.fullName.trim(),
+  email: form.email.trim().toLowerCase(),
+  phone: form.phone.trim(),
+  dob: optionalDate(form.dob),
+  gender: optionalValue(form.gender),
+  nationality: optionalValue(form.nationality),
+  occupation: optionalValue(form.occupation),
+  address: optionalValue(form.address),
+  emergencyName: optionalValue(form.emergencyName),
+  emergencyPhone: optionalValue(form.emergencyPhone),
+  position: optionalValue(form.position),
+  department: [...form.department],
+  duration: optionalValue(form.duration),
+  arrangement: optionalValue(form.arrangement),
+  startDate: optionalDate(form.startDate),
+  supervisor: optionalValue(form.supervisor),
+  agreements: [...form.agreements],
+  mediaConsent: form.mediaConsent === 'yes',
+  volunteerName: optionalValue(form.volunteerName),
+  signature: optionalValue(form.signature),
+  declarationDate: optionalDate(form.declarationDate),
+})
+
+const handleSubmit = async () => {
+  if (!validateCurrentStep() || isSubmitting.value) return
+
+  isSubmitting.value = true
+  stepError.value = ''
+
+  try {
+    await submitVolunteerApplication(buildApplicationPayload())
+    isSubmitted.value = true
+    window.scrollTo({ top: 0, behavior: 'smooth' })
+  } catch (error) {
+    stepError.value =
+      error instanceof Error
+        ? error.message
+        : 'We could not submit your application. Please try again.'
+  } finally {
+    isSubmitting.value = false
+  }
 }
 </script>

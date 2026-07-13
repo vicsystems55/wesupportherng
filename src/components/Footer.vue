@@ -69,7 +69,7 @@
               to="/volunteer-agreement"
               class="transition hover:text-secondary"
             >
-              Volunteer Agreemment
+              Volunteer Agreement
             </RouterLink>
           </li>
 
@@ -135,18 +135,27 @@
           women and girls.
         </p>
 
-        <form class="space-y-3" @submit.prevent>
+        <form class="space-y-3" @submit.prevent="submitNewsletter">
           <input
+            v-model.trim="email"
             type="email"
             placeholder="Email address"
             class="w-full rounded-xl border border-white/10 bg-white px-4 py-3 text-sm text-dark outline-none transition focus:border-secondary"
+            autocomplete="email"
+            required
+            :disabled="isSubmitting"
           />
+
+          <p v-if="message" class="text-xs" :class="isSuccess ? 'text-green-300' : 'text-red-300'" role="status">
+            {{ message }}
+          </p>
 
           <button
             type="submit"
-            class="w-full rounded-xl bg-secondary px-4 py-3 text-sm font-bold text-white transition hover:bg-primary"
+            class="w-full rounded-xl bg-secondary px-4 py-3 text-sm font-bold text-white transition hover:bg-primary disabled:cursor-not-allowed disabled:opacity-60"
+            :disabled="isSubmitting"
           >
-            Subscribe
+            {{ isSubmitting ? 'Subscribing...' : 'Subscribe' }}
           </button>
         </form>
       </div>
@@ -173,3 +182,35 @@
     </div>
   </footer>
 </template>
+
+<script setup>
+import { ref } from 'vue'
+import { subscribeToNewsletter } from '@/services/publicFormsService'
+
+const email = ref('')
+const message = ref('')
+const isSuccess = ref(false)
+const isSubmitting = ref(false)
+
+const submitNewsletter = async () => {
+  if (!email.value || isSubmitting.value) return
+
+  isSubmitting.value = true
+  message.value = ''
+  isSuccess.value = false
+
+  try {
+    await subscribeToNewsletter({ email: email.value.toLowerCase() })
+    email.value = ''
+    isSuccess.value = true
+    message.value = 'Thank you for subscribing.'
+  } catch (error) {
+    message.value =
+      error instanceof Error
+        ? error.message
+        : 'Subscription failed. Please try again.'
+  } finally {
+    isSubmitting.value = false
+  }
+}
+</script>

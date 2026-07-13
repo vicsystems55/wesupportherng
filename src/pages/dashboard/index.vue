@@ -18,7 +18,7 @@
       </div>
 
       <!-- Summary Cards -->
-      <div class="grid gap-5 sm:grid-cols-2 xl:grid-cols-4">
+      <div class="grid gap-5 sm:grid-cols-2 xl:grid-cols-3">
         <article
           v-for="item in summaryCards"
           :key="item.label"
@@ -196,16 +196,7 @@ const summaryCards = [
     color: 'text-accent',
     bg: 'bg-soft-green',
     changeColor: 'text-accent',
-  },
-  {
-    label: 'Pending Orders',
-    value: '4',
-    change: 'Requires attention',
-    icon: ShoppingCart,
-    color: 'text-secondary',
-    bg: 'bg-soft-orange',
-    changeColor: 'text-secondary',
-  },
+  }
 ]
 
 const activities = [

@@ -42,6 +42,14 @@
               Enter your full name and email to receive our latest stories, events, and impact updates.
             </p>
 
+            <p
+              v-if="newsletterError"
+              class="mt-4 rounded-2xl border border-red-200 bg-red-50 p-4 text-sm font-semibold text-red-700"
+              role="alert"
+            >
+              {{ newsletterError }}
+            </p>
+
             <form class="mt-6 space-y-4" @submit.prevent="submitNewsletter">
               <label class="block">
                 <span class="mb-2 block text-xs font-bold uppercase tracking-[0.18em] text-dark/70">Full Name</span>
@@ -70,9 +78,10 @@
               <div class="flex items-center justify-between gap-3 pt-2">
                 <button
                   type="submit"
-                  class="inline-flex items-center justify-center rounded-full bg-secondary px-5 py-3 text-sm font-bold text-white transition hover:bg-primary"
+                  class="inline-flex items-center justify-center rounded-full bg-secondary px-5 py-3 text-sm font-bold text-white transition hover:bg-primary disabled:cursor-not-allowed disabled:opacity-60"
+                  :disabled="isNewsletterSubmitting"
                 >
-                  Subscribe
+                  {{ isNewsletterSubmitting ? 'Subscribing...' : 'Subscribe' }}
                 </button>
                 <button
                   type="button"
@@ -108,9 +117,12 @@
 import { computed, ref, onBeforeUnmount, onMounted } from 'vue'
 import Header from '@/components/Header.vue'
 import Footer from '@/components/Footer.vue'
+import { subscribeToNewsletter } from '@/services/publicFormsService'
 
 const showNewsletterPopup = ref(false)
 const showSuccess = ref(false)
+const newsletterError = ref('')
+const isNewsletterSubmitting = ref(false)
 const newsletterForm = ref({ email: '', fullName: '' })
 const interactionLogged = ref(false)
 let autoOpenTimer = null
@@ -149,25 +161,39 @@ const handleInteraction = () => {
   }
 }
 
-const submitNewsletter = () => {
-  if (!newsletterForm.value.email || !newsletterForm.value.fullName) {
-    return
+const submitNewsletter = async () => {
+  if (
+    !newsletterForm.value.email ||
+    !newsletterForm.value.fullName ||
+    isNewsletterSubmitting.value
+  ) return
+
+  isNewsletterSubmitting.value = true
+  newsletterError.value = ''
+
+  try {
+    await subscribeToNewsletter({
+      fullName: newsletterForm.value.fullName.trim(),
+      email: newsletterForm.value.email.trim().toLowerCase(),
+    })
+
+    showSuccess.value = true
+    handleInteraction()
+    newsletterForm.value = { email: '', fullName: '' }
+
+    if (autoCloseTimer) window.clearTimeout(autoCloseTimer)
+
+    successCloseTimer = window.setTimeout(() => {
+      showNewsletterPopup.value = false
+    }, 2000)
+  } catch (error) {
+    newsletterError.value =
+      error instanceof Error
+        ? error.message
+        : 'We could not complete your subscription. Please try again.'
+  } finally {
+    isNewsletterSubmitting.value = false
   }
-
-  showSuccess.value = true
-  handleInteraction()
-  console.log('Newsletter signup submitted:', {
-    fullName: newsletterForm.value.fullName,
-    email: newsletterForm.value.email,
-  })
-
-  if (autoCloseTimer) {
-    window.clearTimeout(autoCloseTimer)
-  }
-
-  successCloseTimer = window.setTimeout(() => {
-    showNewsletterPopup.value = false
-  }, 2000)
 }
 
 onMounted(() => {
