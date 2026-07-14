@@ -67,41 +67,57 @@
           </div>
 
           <!-- Contact Form -->
-          <form class="reveal rounded-[2rem] bg-white p-8 shadow-xl shadow-black/5">
+          <form
+            class="reveal rounded-[2rem] bg-white p-8 shadow-xl shadow-black/5"
+            novalidate
+            @submit.prevent="handleSubmit"
+          >
             <h2 class="font-display text-3xl font-black text-dark">
               Send a Message
             </h2>
 
-            <div class="mt-8 grid gap-5">
-              <input
-                type="text"
-                placeholder="Full Name"
-                class="rounded-2xl border border-black/10 px-5 py-4 text-sm outline-none transition focus:border-secondary"
-              />
+            <div v-if="isSubmitted" class="mt-8 rounded-2xl border border-accent/20 bg-soft-green p-6 text-center" role="status">
+              <CircleCheck class="mx-auto h-10 w-10 text-accent" />
+              <h3 class="mt-3 text-xl font-black text-dark">Message sent</h3>
+              <p class="mt-2 text-sm leading-relaxed text-dark/65">
+                Thank you for contacting WeSupportHer. Our team will respond as soon as possible.
+              </p>
+              <button type="button" class="mt-4 text-sm font-black text-accent hover:underline" @click="startAnotherMessage">
+                Send another message
+              </button>
+            </div>
 
-              <input
-                type="email"
-                placeholder="Email Address"
-                class="rounded-2xl border border-black/10 px-5 py-4 text-sm outline-none transition focus:border-secondary"
-              />
+            <div v-else class="mt-8 grid gap-5">
+              <label class="sr-only" for="contact-name">Full name</label>
+              <input id="contact-name" v-model="form.fullName" type="text" placeholder="Full Name" autocomplete="name" maxlength="120" :aria-invalid="Boolean(errors.fullName)" class="rounded-2xl border border-black/10 px-5 py-4 text-sm outline-none transition focus:border-secondary" />
+              <p v-if="errors.fullName" class="-mt-3 text-xs font-semibold text-red-600">{{ errors.fullName }}</p>
 
-              <input
-                type="text"
-                placeholder="Subject"
-                class="rounded-2xl border border-black/10 px-5 py-4 text-sm outline-none transition focus:border-secondary"
-              />
+              <label class="sr-only" for="contact-email">Email address</label>
+              <input id="contact-email" v-model="form.email" type="email" placeholder="Email Address" autocomplete="email" maxlength="254" :aria-invalid="Boolean(errors.email)" class="rounded-2xl border border-black/10 px-5 py-4 text-sm outline-none transition focus:border-secondary" />
+              <p v-if="errors.email" class="-mt-3 text-xs font-semibold text-red-600">{{ errors.email }}</p>
 
-              <textarea
-                rows="6"
-                placeholder="Your Message"
-                class="resize-none rounded-2xl border border-black/10 px-5 py-4 text-sm outline-none transition focus:border-secondary"
-              ></textarea>
+              <label class="sr-only" for="contact-subject">Subject</label>
+              <input id="contact-subject" v-model="form.subject" type="text" placeholder="Subject" maxlength="160" :aria-invalid="Boolean(errors.subject)" class="rounded-2xl border border-black/10 px-5 py-4 text-sm outline-none transition focus:border-secondary" />
+              <p v-if="errors.subject" class="-mt-3 text-xs font-semibold text-red-600">{{ errors.subject }}</p>
 
-              <button
-                type="button"
-                class="inline-flex justify-center rounded-xl bg-secondary px-7 py-4 text-sm font-bold text-white transition hover:bg-primary"
-              >
-                Send Message
+              <label class="sr-only" for="contact-message">Your message</label>
+              <textarea id="contact-message" v-model="form.message" rows="6" placeholder="Your Message" maxlength="5000" :aria-invalid="Boolean(errors.message)" class="resize-none rounded-2xl border border-black/10 px-5 py-4 text-sm outline-none transition focus:border-secondary"></textarea>
+              <div class="-mt-3 flex items-start justify-between gap-3">
+                <p v-if="errors.message" class="text-xs font-semibold text-red-600">{{ errors.message }}</p>
+                <span v-else />
+                <span class="text-xs font-semibold text-dark/35">{{ form.message.length }}/5000</span>
+              </div>
+
+              <div class="absolute -left-[9999px]" aria-hidden="true">
+                <label for="contact-website">Website</label>
+                <input id="contact-website" v-model="form.website" type="text" tabindex="-1" autocomplete="off" />
+              </div>
+
+              <div v-if="submitError" class="rounded-2xl border border-red-200 bg-red-50 p-4 text-sm font-semibold text-red-700" role="alert">{{ submitError }}</div>
+
+              <button type="submit" :disabled="isSubmitting" class="inline-flex items-center justify-center gap-2 rounded-xl bg-secondary px-7 py-4 text-sm font-bold text-white transition hover:bg-primary disabled:cursor-not-allowed disabled:opacity-60">
+                <LoaderCircle v-if="isSubmitting" class="h-5 w-5 animate-spin" />
+                {{ isSubmitting ? 'Sending…' : 'Send Message' }}
               </button>
             </div>
           </form>
@@ -137,13 +153,17 @@
 </template>
 
 <script setup>
+import { reactive, ref } from 'vue'
 import { useSeoMeta } from '@unhead/vue'
 import DefaultLayout from '@/layouts/DefaultLayout.vue'
+import { submitContactMessage } from '@/services/publicFormsService'
 import {
+  CircleCheck,
   Phone,
   Mail,
   MapPin,
   Globe,
+  LoaderCircle,
 } from 'lucide-vue-next'
 
 useSeoMeta({
@@ -155,6 +175,73 @@ useSeoMeta({
     'Reach WeSupportHer by phone, email, website or visit us in Maitama, Abuja.',
   ogImage: '/seo/contact-thumbnail.jpg',
 })
+
+const initialForm = () => ({
+  fullName: '',
+  email: '',
+  subject: '',
+  message: '',
+  website: '',
+})
+
+const form = reactive(initialForm())
+const errors = reactive({})
+const isSubmitting = ref(false)
+const isSubmitted = ref(false)
+const submitError = ref('')
+const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+
+const validateForm = () => {
+  Object.keys(errors).forEach((key) => delete errors[key])
+
+  if (form.fullName.trim().length < 2) {
+    errors.fullName = 'Enter your full name.'
+  }
+
+  if (!emailPattern.test(form.email.trim())) {
+    errors.email = 'Enter a valid email address.'
+  }
+
+  if (form.subject.trim().length < 3) {
+    errors.subject = 'Enter a subject of at least 3 characters.'
+  }
+
+  if (form.message.trim().length < 10) {
+    errors.message = 'Your message must contain at least 10 characters.'
+  }
+
+  return !Object.keys(errors).length
+}
+
+const handleSubmit = async () => {
+  if (isSubmitting.value || !validateForm()) return
+
+  isSubmitting.value = true
+  submitError.value = ''
+
+  try {
+    await submitContactMessage({
+      fullName: form.fullName.trim(),
+      email: form.email.trim().toLowerCase(),
+      subject: form.subject.trim(),
+      message: form.message.trim(),
+      website: form.website,
+    })
+    isSubmitted.value = true
+    Object.assign(form, initialForm())
+  } catch (error) {
+    submitError.value = error instanceof Error
+      ? error.message
+      : 'We could not send your message. Please try again.'
+  } finally {
+    isSubmitting.value = false
+  }
+}
+
+const startAnotherMessage = () => {
+  isSubmitted.value = false
+  submitError.value = ''
+}
 
 const contactDetails = [
   {

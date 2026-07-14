@@ -5,3 +5,6 @@ export const submitVolunteerApplication = (application) =>
 
 export const subscribeToNewsletter = (subscriber) =>
   api.post('/api/newsletter/subscriptions', subscriber, { auth: false })
+
+export const submitContactMessage = (message) =>
+  api.post('/api/contact-submissions', message, { auth: false })

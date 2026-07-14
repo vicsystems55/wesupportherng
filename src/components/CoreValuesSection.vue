@@ -101,7 +101,7 @@ const empower = new URL('@/assets/images/empower.jpg', import.meta.url).href
 const motivate = new URL('@/assets/images/motivate.jpg', import.meta.url).href
 const encourage = new URL('@/assets/images/encourage.jpg', import.meta.url).href
 const awareness = new URL('@/assets/images/awareness.jpg', import.meta.url).href
-const galvanized = new URL('@/assets/images/galvanized.jpg', import.meta.url).href
+const galvanized = new URL('@/assets/images/stakeholders.jpg', import.meta.url).href
 const voices = new URL('@/assets/images/voices.jpg', import.meta.url).href
 
 
