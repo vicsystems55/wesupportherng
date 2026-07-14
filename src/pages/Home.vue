@@ -402,7 +402,7 @@
                 </h3>
               </div>
 
-              <RouterLink to="/news-events" class="text-sm font-bold text-secondary">
+              <RouterLink to="/our-blog" class="text-sm font-bold text-secondary">
                 See All →
               </RouterLink>
             </div>
@@ -459,7 +459,7 @@
               </h3>
             </div>
 
-            <RouterLink to="/news-events" class="text-sm font-bold text-secondary">
+            <RouterLink to="/our-blog" class="text-sm font-bold text-secondary">
               View Gallery →
             </RouterLink>
           </div>

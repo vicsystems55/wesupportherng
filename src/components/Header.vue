@@ -5,7 +5,7 @@
         <img src="@/assets/images/logo.png" alt="WeSupportHer Logo" class="h-14 w-auto" />
       </RouterLink>
 
-      <nav class="hidden items-center gap-8 text-sm font-semibold lg:flex">
+      <nav class="hidden items-center gap-5 text-xs font-semibold lg:flex xl:gap-7 xl:text-sm">
         <RouterLink v-for="item in navItems" :key="item.path" :to="item.path" class="nav-link">
           {{ item.label }}
         </RouterLink>
@@ -30,12 +30,13 @@
   :key="item.path"
   :to="item.path"
   class="relative text-dark transition hover:text-secondary [&.router-link-active]:text-secondary [&.router-link-active::after]:absolute [&.router-link-active::after:-bottom-2 [&.router-link-active::after:left-0 [&.router-link-active::after:h-0.5 [&.router-link-active::after:w-full [&.router-link-active::after:rounded-full [&.router-link-active::after:bg-secondary [&.router-link-active::after:content-['']]"
+  @click="menuOpen = false"
 >
   {{ item.label }}
 </RouterLink>
 
         <RouterLink
-          to="/get-involved"
+          to="/donate"
           class="rounded-xl bg-secondary px-5 py-3 text-center text-white"
           @click="menuOpen = false"
         >
@@ -57,7 +58,7 @@ const navItems = [
   { label: 'Our Initiatives', path: '/our-initiatives' },
   { label: 'Impact', path: '/impact' },
   { label: 'Get Involved', path: '/get-involved' },
-  // { label: 'News & Events', path: '/news-events' },
+  { label: 'Our Blog', path: '/our-blog' },
   { label: 'Our Gallery', path: '/our-gallery' },
 
   { label: 'Contact Us', path: '/contact-us' },

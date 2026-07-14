@@ -53,12 +53,26 @@ const routes = [
   },
 
   {
-    path: '/news-events',
-    name: 'NewsEvents',
+    path: '/our-blog',
+    name: 'OurBlog',
     component: () => import('@/pages/NewsEvents.vue'),
     meta: {
-      title: 'News & Events',
+      title: 'Our Blog',
     },
+  },
+
+  {
+    path: '/our-blog/:slug',
+    name: 'BlogPost',
+    component: () => import('@/pages/PostDetails.vue'),
+    meta: {
+      title: 'Our Blog',
+    },
+  },
+
+  {
+    path: '/news-events',
+    redirect: '/our-blog',
   },
 
   {
@@ -150,6 +164,26 @@ const routes = [
     component: () => import('@/pages/dashboard/posts/index.vue'),
     meta: {
       title: 'Blog Posts',
+      requiresAuth: true,
+    },
+  },
+
+  {
+    path: '/admin/posts/create',
+    name: 'AdminPostCreate',
+    component: () => import('@/pages/dashboard/posts/editor.vue'),
+    meta: {
+      title: 'Create Blog Post',
+      requiresAuth: true,
+    },
+  },
+
+  {
+    path: '/admin/posts/:id/edit',
+    name: 'AdminPostEdit',
+    component: () => import('@/pages/dashboard/posts/editor.vue'),
+    meta: {
+      title: 'Edit Blog Post',
       requiresAuth: true,
     },
   },
