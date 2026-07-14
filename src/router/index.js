@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import { isAuthenticated } from '@/services/authStorage'
+import { trackPageView } from '@/services/analytics'
 
 const routes = [
   /* =========================
@@ -297,6 +298,10 @@ router.afterEach((to) => {
     : 'WeSupportHer'
 
   document.title = pageTitle
+
+  if (!to.meta.requiresAuth && !to.meta.guestOnly) {
+    trackPageView(to)
+  }
 })
 
 router.beforeEach((to) => {
