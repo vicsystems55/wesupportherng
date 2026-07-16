@@ -63,3 +63,21 @@ export const getNewsletterSubscribers = async (params, options = {}) => {
 
 export const updateNewsletterSubscriberStatus = (id, status) =>
   api.patch(`/api/admin/newsletter/subscribers/${id}/status`, { status })
+
+export const getContactSubmissions = async (params = {}, options = {}) => {
+  const response = await api.get(
+    `/api/admin/contact-submissions${buildQuery(params)}`,
+    options,
+  )
+
+  return normalizeCollection(response, 'submissions')
+}
+
+export const getContactSubmission = async (id, options = {}) => {
+  const response = await api.get(`/api/admin/contact-submissions/${id}`, options)
+
+  return response?.data?.submission ?? response?.submission ?? response?.data ?? response
+}
+
+export const updateContactSubmissionStatus = (id, status) =>
+  api.patch(`/api/admin/contact-submissions/${id}/status`, { status })

@@ -108,9 +108,16 @@
                 <span class="text-xs font-semibold text-dark/35">{{ form.message.length }}/5000</span>
               </div>
 
-              <div class="absolute -left-[9999px]" aria-hidden="true">
-                <label for="contact-website">Website</label>
-                <input id="contact-website" v-model="form.website" type="text" tabindex="-1" autocomplete="off" />
+              <div class="honeypot" aria-hidden="true">
+                <label for="contact-check">Leave this field empty</label>
+                <input
+                  id="contact-check"
+                  v-model="form.website"
+                  type="text"
+                  name="contact_check"
+                  tabindex="-1"
+                  autocomplete="off"
+                />
               </div>
 
               <div v-if="submitError" class="rounded-2xl border border-red-200 bg-red-50 p-4 text-sm font-semibold text-red-700" role="alert">{{ submitError }}</div>
@@ -225,7 +232,7 @@ const handleSubmit = async () => {
       email: form.email.trim().toLowerCase(),
       subject: form.subject.trim(),
       message: form.message.trim(),
-      website: form.website,
+      website: form.website?.trim() || '',
     })
     isSubmitted.value = true
     Object.assign(form, initialForm())
@@ -278,3 +285,13 @@ const contactDetails = [
   },
 ]
 </script>
+
+<style scoped>
+.honeypot {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+</style>
